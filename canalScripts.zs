@@ -1,0 +1,16 @@
+recipes.addShaped(<Canal:canaldry> * 6, [[<minecraft:stonebrick>, <minecraft:stone_slab:5>, <minecraft:stonebrick>], [<minecraft:stonebrick>, <minecraft:stonebrick>, <minecraft:stonebrick>]]);
+mods.nei.NEI.hide(<Canal:canalwet>);
+mods.nei.NEI.hide(<Canal:canaldryE>);
+mods.nei.NEI.hide(<Canal:canalwetE>);
+mods.nei.NEI.hide(<Canal:canaldryN-E>);
+mods.nei.NEI.hide(<Canal:canaldryE-N>);
+mods.nei.NEI.hide(<Canal:canaldryE-S>);
+mods.nei.NEI.hide(<Canal:canalwetE-S>);
+mods.nei.NEI.hide(<Canal:canalwetC>);
+mods.nei.NEI.hide(<Canal:canalwetN-E>);
+mods.nei.NEI.hide(<Canal:canalwetE-N>);
+mods.nei.NEI.hide(<Canal:canalwetN-W>);
+mods.nei.NEI.hide(<Canal:canaldryC>);
+mods.nei.NEI.hide(<Canal:canaldryN-W>);
+mods.nei.NEI.hide(<Canal:canalclose>);
+mods.nei.NEI.hide(<Canal:canalcloseE>);
