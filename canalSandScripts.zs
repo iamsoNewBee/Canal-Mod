@@ -1,0 +1,16 @@
+recipes.addShaped(<CanalSand:canalsanddry> * 6, [[<minecraft:sandstone>, <minecraft:stone_slab:1>, <minecraft:sandstone>], [<minecraft:sandstone>, <minecraft:sandstone>, <minecraft:sandstone>]]);
+mods.nei.NEI.hide(<CanalSand:canalsandwet>);
+mods.nei.NEI.hide(<CanalSand:canalsanddryE>);
+mods.nei.NEI.hide(<CanalSand:canalsandwetE>);
+mods.nei.NEI.hide(<CanalSand:canalsanddryN-E>);
+mods.nei.NEI.hide(<CanalSand:canalsanddryE-N>);
+mods.nei.NEI.hide(<CanalSand:canalsanddryE-S>);
+mods.nei.NEI.hide(<CanalSand:canalsandwetE-S>);
+mods.nei.NEI.hide(<CanalSand:canalsandwetC>);
+mods.nei.NEI.hide(<CanalSand:canalsandwetN-E>);
+mods.nei.NEI.hide(<CanalSand:canalsandwetE-N>);
+mods.nei.NEI.hide(<CanalSand:canalsandwetN-W>);
+mods.nei.NEI.hide(<CanalSand:canalsanddryC>);
+mods.nei.NEI.hide(<CanalSand:canalsanddryN-W>);
+mods.nei.NEI.hide(<CanalSand:canalsandclose>);
+mods.nei.NEI.hide(<CanalSand:canalsandcloseE>);
