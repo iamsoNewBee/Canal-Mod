@@ -1,8 +1,16 @@
 # Canal-Mod
-A mod about canal.
+A mod about canal,
 
-Many bugs, and shit mountain code.
+which could carry the water.
+
+Not only can it moisturize your crops,
+
+but also decorate your farm.
+
+~~There are many bugs,~~
+
+~~and shit mountain code.~~
 
 (I actually fix most of bugs via my overworked brain and more shit code.)
 
-Enjoy :)
+so just Enjoy :)
