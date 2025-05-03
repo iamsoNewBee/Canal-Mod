@@ -11,6 +11,6 @@ but also decorate your farm.
 
 ~~and shit mountain code.~~
 
-(I actually fix most of bugs via my overworked brain and more shit code.)
+(I have actually fixed most of bugs via my overworked brain and more shit code.)
 
 so just Enjoy :)
