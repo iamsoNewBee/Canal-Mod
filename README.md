@@ -1,11 +1,19 @@
 # Canal-Mod
-A mod about canal,
+A mod about canals,
 
 which could carry the water.
 
-Not only can it moisturize your crops,
+Not only do they moisturize your crops,
 
 but also decorate your farm.
+
+You say they are useless,
+
+I say they are neccessary.
+
+Yeah yeah, just do everyting with the powerful bucket.
+
+And see what everything you have missed.
 
 ~~There are many bugs,~~
 
