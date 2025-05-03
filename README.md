@@ -1,7 +1,7 @@
 # Canal-Mod
 A mod about canals,
 
-which could carry the water.
+which could carry the water away.
 
 Not only do they moisturize your crops,
 
