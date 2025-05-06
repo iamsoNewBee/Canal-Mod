@@ -1,0 +1,16 @@
+recipes.addShaped(<CanalDirt:canalGenerater>, [[null, <ore:cobblestone>, <minecraft:iron_ingot>], [null, <ore:stickWood>, <ore:cobblestone>], [<ore:cobblestone>, null, null]]);
+mods.nei.NEI.hide(<CanalDirt:canaldirtwet>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtcloseE>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtwetC>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtdryC>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtdryN-W>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtclose>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtdryE>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtdryE-N>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtwetE-S>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtwetE-N>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtdryN-E>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtdryE-S>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtwetN-E>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtwetE>);
+mods.nei.NEI.hide(<CanalDirt:canaldirtwetN-W>);
