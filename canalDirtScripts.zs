@@ -1,3 +1,4 @@
+recipes.addShaped(<CanalDirt:canaldirtdry> * 6, [[<minecraft:dirt>, <minecraft:dirt>, <minecraft:dirt>], [<minecraft:dirt>, <minecraft:dirt>, <minecraft:dirt>]]);
 recipes.addShaped(<CanalDirt:canalGenerater>, [[null, <ore:cobblestone>, <minecraft:iron_ingot>], [null, <ore:stickWood>, <ore:cobblestone>], [<ore:cobblestone>, null, null]]);
 mods.nei.NEI.hide(<CanalDirt:canaldirtwet>);
 mods.nei.NEI.hide(<CanalDirt:canaldirtcloseE>);
