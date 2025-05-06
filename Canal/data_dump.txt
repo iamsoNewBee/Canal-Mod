@@ -1,3799 +1,0 @@
-IMPORTANT:
-This is just the packs data in a readable format used for debugging stuff.
-Changes made here have no effect at all. This is intended.
-
-{   ManagerList: {      [0]: {         Name: "OreDictEntryRegistry"         ContentList: {         }      }      [1]: {         Name: "CreativeTabRegistry"         ContentList: {            [0]: {               Icon: {                  Damage: 0s                  ItemName: "Canal:canaldry"                  Count: 1b               }               Name: "Canal"               Label: "水渠"            }         }      }      [2]: {         Name: "FuelRegistry"         ContentList: {         }      }      [3]: {         Name: "SmeltingRecipeRegistry"         ContentList: {         }      }      [4]: {         Name: "ShapedRecipeRegistry"         ContentList: {         }      }      [5]: {         Name: "ShapelessRecipeRegistry"         ContentList: {         }      }      [6]: {         Name: "ArmorMaterialRegistry"         ContentList: {         }      }      [7]: {         Name: "ItemRegistry"         ContentList: {         }      }      [8]: {         Name: "TileEntityRegistry"         ContentList: {         }      }      [9]: {         Name: "GuiRegistry"         ContentList: {         }      }      [10]: {         Name: "BlockRegistry"         ContentList: {            [0]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-var i = player.getLookingSide()
-var air      = "minecraft:air"
-var dryN     = "Canal:canaldry"
-var dryC    = "Canal:canaldryC"
-var dryE     = "Canal:canaldryE"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-
-var wetN     = "Canal:canalwet"
-var wetC    = "Canal:canalwetC"
-var wetE     = "Canal:canalwetE"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-//world.sendMessageToAllPlayers("side " +  i)
-if(
-(i==3)||(i==1)
-){
-    if(
-        (world.getBlockName(x,y,z+1) == dryNE)||
-        (world.getBlockName(x,y,z-1) == dryNE)||
-        (world.getBlockName(x,y,z+1) == dryNW)||
-        (world.getBlockName(x,y,z-1) == dryNW)||
-        (world.getBlockName(x,y,z+1) == dryC)||
-        (world.getBlockName(x,y,z-1) == dryC)||
-        (world.getBlockName(x,y,z+1) == wetNE)||
-        (world.getBlockName(x,y,z-1) == wetNE)||
-        (world.getBlockName(x,y,z+1) == wetNW)||
-        (world.getBlockName(x,y,z-1) == wetNW)||
-        (world.getBlockName(x,y,z+1) == wetC)||
-        (world.getBlockName(x,y,z-1) == wetC)
-    ){
-    world.setBlock(x,y,z,dryN)
-    }else{
-        world.setBlock(x,y,z,dryE)
-    }
-}
-if(
-(i==0)||(i==2)
-){
-    if(
-        (world.getBlockName(x+1,y,z) == dryES)||
-        (world.getBlockName(x-1,y,z) == dryES)||
-        (world.getBlockName(x+1,y,z) == dryEN)||
-        (world.getBlockName(x-1,y,z) == dryEN)||
-        (world.getBlockName(x+1,y,z) == dryC)||
-        (world.getBlockName(x-1,y,z) == dryC)||
-        (world.getBlockName(x+1,y,z) == wetES)||
-        (world.getBlockName(x-1,y,z) == wetES)||
-        (world.getBlockName(x+1,y,z) == wetEN)||
-        (world.getBlockName(x-1,y,z) == wetEN)||
-        (world.getBlockName(x+1,y,z) == wetC)||
-        (world.getBlockName(x-1,y,z) == wetC)
-    ){
-    world.setBlock(x,y,z,dryE)
-    }else{
-        world.setBlock(x,y,z,dryN)
-    }
-}"                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-var water = "minecraft:water"
-var air   = "minecraft:air"
-var wet   = "Canal:canalwet"
-var dry   = "Canal:canaldry"
-var dryE  = "Canal:canaldryE"
-////////////////////////////////
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-
-if(
-(world.getBlockName(x,y,z-1) == water)&&(world.getBlockMetadata(x,y,z-1) == 0)
-){
-world.setBlock(x,y,z,wet)
-}
-
-if(
-(world.getBlockName(x,y,z+1) == water)&&(world.getBlockMetadata(x,y,z+1) == 0)
-){
-world.setBlock(x,y,z,wet)
-}
-
-if(
-world.getBlockName(x,y,z-1) == wet
-){
-world.setBlock(x,y,z,wet)
-}
-
-if(
-world.getBlockName(x,y,z+1) == wet
-){
-world.setBlock(x,y,z,wet)
-}
-/////////////////////////////////////////////////////////////////////////////////////////////
-if(
-(world.getBlockName(x-1,y,z) == dryE)||(world.getBlockName(x-1,y,z) == dryEN)||(world.getBlockName(x-1,y,z) == dryES)||(world.getBlockName(x-1,y,z) == dryNE)
-){
-world.setBlock(x,y,z,"Canal:canaldryN-W")
-}
-
-if(
-(world.getBlockName(x+1,y,z) == dryE)||(world.getBlockName(x+1,y,z) == dryEN)||(world.getBlockName(x+1,y,z) == dryES)||(world.getBlockName(x+1,y,z) == dryNW)
-){
-world.setBlock(x,y,z,"Canal:canaldryN-E")
-}"                  }                  onBreak: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-if(
-world.getBlockName(x,y,z+1) == "Canal:canaldryE-N"
-){
-world.setBlock(x,y,z+1,"Canal:canaldryE")
-}
-if(
-world.getBlockName(x,y,z-1) == "Canal:canaldryE-S"
-){
-world.setBlock(x,y,z-1,"Canal:canaldryE")
-}
-/////////////////////////////////////////
-if(
-world.getBlockName(x,y,z+1) == "Canal:canaldryC"
-){
-world.setBlock(x,y,z+1,"Canal:canaldryE-S")
-}
-if(
-world.getBlockName(x,y,z-1) == "Canal:canaldryC"
-){
-world.setBlock(x,y,z-1,"Canal:canaldryE-N")
-}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTop"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-////////////////////////////////////////////////////
-var water    = "minecraft:water"
-var air      = "minecraft:air" 
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-////////////////////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////////////////
-if(
-world.getBlockName(x,y,z+1) == wetES
-){
-world.setBlock(x,y,z+1,dryC)
-}
-if(
-world.getBlockName(x,y,z-1) == wetEN
-){
-world.setBlock(x,y,z-1,dryC)
-}
-if(
-world.getBlockName(x,y,z+1) == wetE
-){
-world.setBlock(x,y,z+1,dryE)
-}
-if(
-world.getBlockName(x,y,z-1) == wetE
-){
-world.setBlock(x,y,z-1,dryE)
-}"                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canaldry"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                     Value: ""                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                     Value: ""                  }                  onPlaced: {                     Value: ""                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-if(player.isSneaking()){
-player.swingItem()
-world.setBlock(x,y,z,"Canal:canalclose")}"                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                     Value: ""                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "Canal"                  }                  onDestroyedByPlayer: {                     Value: ""                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                     Value: ""                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canaldry"            }            [1]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-var water = "minecraft:water"
-var wet    = "Canal:canalwet"
-var air      = "minecraft:air"
-////////////////////////////////////////////////
-if(
-world.getBlockName(x,y,z-1) == "Canal:canaldryE-N"
-){
-world.setBlock(x,y,z-1,"Canal:canalwetC")
-}
-if(
-world.getBlockName(x,y,z+1) ==  "Canal:canaldryE-S"
-){
-world.setBlock(x,y,z+1,"Canal:canalwetC")
-}
-/////////////////////////////////////////////////
-if(
-world.getBlockName(x,y,z-1) == air
-){
-world.setBlockAndMetadata(x,y,z-1,water,1)
-}
-
-if(
-world.getBlockName(x,y,z+1) == air
-){
-world.setBlockAndMetadata(x,y,z+1,water,1)
-}
-////////////////////////////////////////////////
-//if(
-//world.getBlockName(x+1,y,z) == "Canal:canaldryE"
-//){
-//world.setBlock(x,y,z,"Canal:canalwetN-E")
-//}
-//if(
-//world.getBlockName(x-1,y,z) == "Canal:canaldryE"
-//){
-//world.setBlock(x,y,z,"Canal:canalwetN-W")
-//}
-//bug fix
-///////////////////////////////////////////////
-if(
-world.getBlockName(x,y,z-1) == "Canal:canaldryE"
-){
-world.setBlock(x,y,z-1,"Canal:canalwetE-S")
-}
-if(
-world.getBlockName(x,y,z+1) == "Canal:canaldryE"
-){
-world.setBlock(x,y,z+1,"Canal:canalwetE-N")
-}"                  }                  onBreak: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-var water = "minecraft:water"
-var air      = "minecraft:air"
-var wet    = "Canal:canalwet"
-var dry     = "Canal:canaldry"
-if(
-    (world.getBlockName(x,y,z+1) == water)&&(world.getBlockMetadata(x,y,z+1) == 1)
-){
-    world.setBlock(x,y,z+1,air)
-}
-if(
-    (world.getBlockName(x,y,z-1) == water)&&(world.getBlockMetadata(x,y,z-1) == 1)
-){
-    world.setBlock(x,y,z-1,air)
-}
-if(
-    (world.getBlockName(x,y,z-1) == wet)&&(world.getBlockName(x,y,z+1) == wet)
-){
-    world.setBlock(x,y,z-1,dry)
-    world.setBlock(x,y,z+1,dry)
-}
-if(
-    (world.getBlockName(x,y,z-1) == wet)&&(world.getBlockName(x,y,z+1) == air)
-){
-    world.setBlock(x,y,z-1,dry)
-}
-if(
-    (world.getBlockName(x,y,z-1) == air)&&(world.getBlockName(x,y,z+1) == wet)
-){
-    world.setBlock(x,y,z+1,dry)
-}
-if(
-    (world.getBlockName(x,y,z-1) == wet)&&(world.getBlockName(x,y,z+1) == dry)
-){
-    world.setBlock(x,y,z-1,dry)
-}
-if(
-    (world.getBlockName(x,y,z-1) == dry)&&(world.getBlockName(x,y,z+1) == wet)
-){
-    world.setBlock(x,y,z+1,dry)
-}
-
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-
-//W
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetE)
-){ 
-    world.setBlock(x-1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetNE)
-){ 
-    world.setBlock(x-1,y,z,dryNE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetES)
-){ 
-    world.setBlock(x-1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetEN)
-){ 
-    world.setBlock(x-1,y,z,dryEN)
-}
-
-//E
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){
-    world.setBlock(x+1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){ 
-    world.setBlock(x+1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetE)
-){ 
-    world.setBlock(x+1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetNW)
-){ 
-    world.setBlock(x+1,y,z,dryNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetES)
-){ 
-    world.setBlock(x+1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetEN)
-){ 
-    world.setBlock(x+1,y,z,dryEN)
-}
-
-//N
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetN)
-){ 
-    world.setBlock(x,y,z-1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNE)
-){ 
-    world.setBlock(x,y,z-1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNW)
-){ 
-    world.setBlock(x,y,z-1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetES)
-){ 
-    world.setBlock(x,y,z-1,dryES)
-}
-
-//S
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetN)
-){ 
-    world.setBlock(x,y,z+1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNE)
-){ 
-    world.setBlock(x,y,z+1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNW)
-){ 
-    world.setBlock(x,y,z+1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetEN)
-){ 
-    world.setBlock(x,y,z+1,dryEN)
-}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalWet"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canalwet"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                     Value: ""                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                     Value: ""                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-var inv = player.getInventory()
-var i = player.getCurrentSlot()
-var n = inv.getStackSize(i)
-var name = inv.getItemName(i)
-///////////////////////////////////////////////
-if (
-name == "minecraft:glass_bottle"
-){
-player.swingItem()
-//world.setBlock(x,y,z,"Canal:canaldryfake")
-inv.remove("minecraft:glass_bottle", 0, 1)
-//player.dropItem("minecraft:potion",0,1)
-inv.add("minecraft:potion",0,1)
-//world.setBlock(x,y,z,"Canal:canaldry")
-//world.spawnItem(position,"minecraft:potion",0,1)
-}
-//////////////////////////////////////////////////
-if(player.isSneaking()){
-player.swingItem()
-world.setBlock(x,y,z,"Canal:canalclose")}"                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-////////////////////////////////////////////////////
-var water    = "minecraft:water"
-var air      = "minecraft:air" 
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-////////////////////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////////////////
-if(
-    (world.getBlockName(x,y,z-1) != air)&&
-    (world.getBlockName(x,y,z-1) != water)&&
-    (world.getBlockName(x,y,z-1) != wetN)&&
-    (world.getBlockName(x,y,z-1) != wetNE)&&
-    (world.getBlockName(x,y,z-1) != wetNW)&&
-    (world.getBlockName(x,y,z-1) != wetES)&&
-    (world.getBlockName(x,y,z-1) != dryES)&&
-    (world.getBlockName(x,y,z-1) != wetEN)&&
-    (world.getBlockName(x,y,z-1) != dryEN)&&
-    (world.getBlockName(x,y,z-1) != wetC)&&
-    (world.getBlockName(x,y,z-1) != dryC)&&
-    (world.getBlockName(x,y,z-1) != dryN)&&
-    (world.getBlockName(x,y,z-1) != dryE)&&
-    (world.getBlockName(x,y,z-1) != wetE)&&
-    (world.getBlockName(x,y,z-1) != dryNE)&&
-    (world.getBlockName(x,y,z-1) != dryNW)&&
-        (world.getBlockName(x,y,z-1) != "Canal:canalclose")&&
-        (world.getBlockName(x,y,z-1) != "Canal:canalcloseE")
-){
-    world.setBlock(x,y,z,"Canal:canalclose")
-}
-if(
-    (world.getBlockName(x,y,z+1) != air)&&
-    (world.getBlockName(x,y,z+1) != water)&&
-    (world.getBlockName(x,y,z+1) != wetN)&&
-    (world.getBlockName(x,y,z+1) != wetNE)&&
-    (world.getBlockName(x,y,z+1) != wetNW)&&
-    (world.getBlockName(x,y,z+1) != wetES)&&
-    (world.getBlockName(x,y,z+1) != dryES)&&
-    (world.getBlockName(x,y,z+1) != wetEN)&&
-    (world.getBlockName(x,y,z+1) != dryEN)&&
-    (world.getBlockName(x,y,z+1) != wetC)&&
-    (world.getBlockName(x,y,z+1) != dryC)&&
-    (world.getBlockName(x,y,z+1) != dryN)&&
-    (world.getBlockName(x,y,z+1) != dryNE)&&
-    (world.getBlockName(x,y,z+1) != dryE)&&
-    (world.getBlockName(x,y,z+1) != wetE)&&
-    (world.getBlockName(x,y,z+1) != dryNW)&&
-        (world.getBlockName(x,y,z+1) != "Canal:canalclose")&&
-        (world.getBlockName(x,y,z+1) != "Canal:canalcloseE")
-){
-    world.setBlock(x,y,z,"Canal:canalclose")
-}"                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                     Value: ""                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canalwet"            }            [2]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                     Value: ""                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-var water = "minecraft:water"
-var air      = "minecraft:air"
-var wet    = "Canal:canalwetE"
-var dry     = "Canal:canaldryE"
-var dryN = "Canal:canaldry"
-/////////////////////////////////////////
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-if(
-(world.getBlockName(x-1,y,z) == water)&&(world.getBlockMetadata(x-1,y,z) == 0)
-){
-world.setBlock(x,y,z,wet)
-}
-
-if(
-(world.getBlockName(x+1,y,z) == water)&&(world.getBlockMetadata(x+1,y,z) == 0)
-){
-world.setBlock(x,y,z,wet)
-}
-
-if(
-world.getBlockName(x-1,y,z) == wet
-){
-world.setBlock(x,y,z,wet)
-}
-
-if(
-world.getBlockName(x+1,y,z) == wet
-){
-world.setBlock(x,y,z,wet)
-}
-/////////////////////////////////////////////////////////////////////
-if(
-(world.getBlockName(x,y,z-1) == dryN)||(world.getBlockName(x,y,z-1) == dryNE)||(world.getBlockName(x,y,z-1) == dryNW)||(world.getBlockName(x,y,z-1) == dryES)
-){
-world.setBlock(x,y,z,"Canal:canaldryE-N")
-}
-
-if(
-(world.getBlockName(x,y,z+1) == dryN)||(world.getBlockName(x,y,z+1) == dryNE)||(world.getBlockName(x,y,z+1) == dryNW)||(world.getBlockName(x,y,z+1) == dryEN)
-){
-world.setBlock(x,y,z,"Canal:canaldryE-S")
-}"                  }                  onBreak: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-if(
-world.getBlockName(x+1,y,z) == "Canal:canaldryN-W"
-){
-world.setBlock(x+1,y,z,"Canal:canaldry")
-}
-if(
-world.getBlockName(x-1,y,z) == "Canal:canaldryN-E"
-){
-world.setBlock(x-1,y,z,"Canal:canaldry")
-}
-////////////////////////////////////////////////////////////
-if(
-world.getBlockName(x+1,y,z) == "Canal:canaldryC"
-){
-world.setBlock(x+1,y,z,"Canal:canaldryN-E")
-}
-if(
-world.getBlockName(x-1,y,z) == "Canal:canaldryC"
-){
-world.setBlock(x-1,y,z,"Canal:canaldryN-W")
-}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopE"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-////////////////////////////////////////////////////
-var water    = "minecraft:water"
-var air      = "minecraft:air" 
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-////////////////////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////////////////
-if(
-world.getBlockName(x-1,y,z) == wetNW
-){
-world.setBlock(x-1,y,z,dryC)
-}
-if(
-world.getBlockName(x+1,y,z) == wetNE
-){
-world.setBlock(x+1,y,z,dryC)
-}
-if(
-world.getBlockName(x+1,y,z) == wetN
-){
-world.setBlock(x+1,y,z,dryNW)
-}
-if(
-world.getBlockName(x-1,y,z) == wetN
-){
-world.setBlock(x-1,y,z,dryNE)
-}"                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canaldryE"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                     Value: ""                  }                  onPlaced: {                     Value: ""                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-/////////////////////////////////////////////////
-if(player.isSneaking()){
-player.swingItem()
-world.setBlock(x,y,z,"Canal:canalcloseE")}"                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canaldryE"            }            [3]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 1b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-var water    = "minecraft:water"
-var wet      = "Canal:canalwetE"
-var air      = "minecraft:air"
-//////////////////////////////////////////////
-if(
-world.getBlockName(x-1,y,z) == "Canal:canaldryN-W"
-){
-world.setBlock(x-1,y,z,"Canal:canalwetC")
-}
-if(
-world.getBlockName(x+1,y,z) ==  "Canal:canaldryN-E"
-){
-world.setBlock(x+1,y,z,"Canal:canalwetC")
-}
-/////////////////////////////////////////////
-if(
-world.getBlockName(x-1,y,z) == air
-){
-world.setBlockAndMetadata(x-1,y,z,water,1)
-}
-if(
-world.getBlockName(x+1,y,z) == air
-){
-world.setBlockAndMetadata(x+1,y,z,water,1)
-}
-////////////////////////////////////////////////
-if(
-world.getBlockName(x,y,z+1) == "Canal:canaldry"
-){
-world.setBlock(x,y,z,"Canal:canalwetE-S")
-}
-if(
-world.getBlockName(x,y,z-1) == "Canal:canaldry"
-){
-world.setBlock(x,y,z,"Canal:canalwetE-N")
-}
-if(
-world.getBlockName(x+1,y,z) == "Canal:canaldry"
-){
-world.setBlock(x+1,y,z,"Canal:canalwetN-W")
-}
-if(
-world.getBlockName(x-1,y,z) == "Canal:canaldry"
-){
-world.setBlock(x-1,y,z,"Canal:canalwetN-E")
-}
-
-//bug fix
-///////////////////////////////////////////////
-//if(
-//world.getBlockName(x+1,y,z) == "Canal:canalwet"
-//){
-//world.setBlock(x+1,y,z,"Canal:canalwetN-W")
-//}
-//if(
-//world.getBlockName(x-1,y,z) == "Canal:canalwet"
-//){
-//world.setBlock(x-1,y,z,"Canal:canalwetN-E")
-//}"                  }                  onBreak: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-var water = "minecraft:water"
-var air      = "minecraft:air"
-var wet    = "Canal:canalwetE"
-var dry     = "Canal:canaldryE"
-if(
-    (world.getBlockName(x+1,y,z) == water)&&(world.getBlockMetadata(x+1,y,z) == 1)
-){
-    world.setBlock(x+1,y,z,air)
-}
-if(
-    (world.getBlockName(x-1,y,z) == water)&&(world.getBlockMetadata(x-1,y,z) == 1)
-){
-    world.setBlock(x-1,y,z,air)
-}
-if(
-    (world.getBlockName(x-1,y,z) == wet)&&(world.getBlockName(x+1,y,z) == wet)
-){
-    world.setBlock(x-1,y,z,dry)
-    world.setBlock(x+1,y,z,dry)
-}
-if(
-    (world.getBlockName(x-1,y,z) == wet)&&(world.getBlockName(x+1,y,z) == air)
-){
-    world.setBlock(x-1,y,z,dry)
-}
-if(
-    (world.getBlockName(x-1,y,z) == air)&&(world.getBlockName(x+1,y,z) == wet)
-){
-    world.setBlock(x+1,y,z,dry)
-}
-if(
-    (world.getBlockName(x-1,y,z) == wet)&&(world.getBlockName(x+1,y,z) == dry)
-){
-    world.setBlock(x-1,y,z,dry)
-}
-if(
-    (world.getBlockName(x-1,y,z) == dry)&&(world.getBlockName(x+1,y,z) == wet)
-){
-    world.setBlock(x+1,y,z,dry)
-}
-
-
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-
-//W
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetE)
-){ 
-    world.setBlock(x-1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetNE)
-){ 
-    world.setBlock(x-1,y,z,dryNE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetES)
-){ 
-    world.setBlock(x-1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetEN)
-){ 
-    world.setBlock(x-1,y,z,dryEN)
-}
-
-//E
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){
-    world.setBlock(x+1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){ 
-    world.setBlock(x+1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetE)
-){ 
-    world.setBlock(x+1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetNW)
-){ 
-    world.setBlock(x+1,y,z,dryNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetES)
-){ 
-    world.setBlock(x+1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetEN)
-){ 
-    world.setBlock(x+1,y,z,dryEN)
-}
-
-//N
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetN)
-){ 
-    world.setBlock(x,y,z-1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNE)
-){ 
-    world.setBlock(x,y,z-1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNW)
-){ 
-    world.setBlock(x,y,z-1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetES)
-){ 
-    world.setBlock(x,y,z-1,dryES)
-}
-
-//S
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetN)
-){ 
-    world.setBlock(x,y,z+1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNE)
-){ 
-    world.setBlock(x,y,z+1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNW)
-){ 
-    world.setBlock(x,y,z+1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetEN)
-){ 
-    world.setBlock(x,y,z+1,dryEN)
-}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalWetE"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canalwetE"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                     Value: ""                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-/////////////////////////////
-var inv = player.getInventory()
-var i = player.getCurrentSlot()
-var n = inv.getStackSize(i)
-var name = inv.getItemName(i)
-///////////////////////////////////////////////
-if (
-name == "minecraft:glass_bottle"
-){
-player.swingItem()
-//world.setBlock(x,y,z,"Canal:canaldryfake")
-inv.remove("minecraft:glass_bottle", 0, 1)
-//player.dropItem("minecraft:potion",0,1)
-inv.add("minecraft:potion",0,1)
-//world.setBlock(x,y,z,"Canal:canaldry")
-//world.spawnItem(position,"minecraft:potion",0,1)
-}////////////////////
-if(player.isSneaking()){
-player.swingItem()
-world.setBlock(x,y,z,"Canal:canalcloseE")}"                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-////////////////////////////////////////////////////
-var water    = "minecraft:water"
-var air      = "minecraft:air" 
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-////////////////////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////////////////
-if(
-    (world.getBlockName(x-1,y,z) != air)&&
-    (world.getBlockName(x-1,y,z) != water)&&
-    (world.getBlockName(x-1,y,z) != wetE)&&
-    (world.getBlockName(x-1,y,z) != wetNE)&&
-    (world.getBlockName(x-1,y,z) != wetNW)&&
-    (world.getBlockName(x-1,y,z) != wetES)&&
-    (world.getBlockName(x-1,y,z) != dryES)&&
-    (world.getBlockName(x-1,y,z) != wetEN)&&
-    (world.getBlockName(x-1,y,z) != dryEN)&&
-    (world.getBlockName(x-1,y,z) != wetC)&&
-    (world.getBlockName(x-1,y,z) != dryC)&&
-    (world.getBlockName(x-1,y,z) != dryE)&&
-    (world.getBlockName(x-1,y,z) != dryNE)&&
-    (world.getBlockName(x-1,y,z) != dryNW)&&
-    (world.getBlockName(x-1,y,z) != dryN)&&
-    (world.getBlockName(x-1,y,z) != wetN)&&
-        (world.getBlockName(x-1,y,z) != "Canal:canalclose")&&
-        (world.getBlockName(x-1,y,z) != "Canal:canalcloseE")
-){
-    world.setBlock(x,y,z,"Canal:canalcloseE")
-}
-if(
-    (world.getBlockName(x+1,y,z) != air)&&
-    (world.getBlockName(x+1,y,z) != water)&&
-    (world.getBlockName(x+1,y,z) != wetE)&&
-    (world.getBlockName(x+1,y,z) != wetNE)&&
-    (world.getBlockName(x+1,y,z) != wetNW)&&
-    (world.getBlockName(x+1,y,z) != wetES)&&
-    (world.getBlockName(x+1,y,z) != dryES)&&
-    (world.getBlockName(x+1,y,z) != wetEN)&&
-    (world.getBlockName(x+1,y,z) != dryEN)&&
-    (world.getBlockName(x+1,y,z) != wetC)&&
-    (world.getBlockName(x+1,y,z) != dryC)&&
-    (world.getBlockName(x+1,y,z) != dryE)&&
-    (world.getBlockName(x+1,y,z) != dryNE)&&
-    (world.getBlockName(x+1,y,z) != dryNW)&&
-    (world.getBlockName(x+1,y,z) != dryN)&&
-    (world.getBlockName(x+1,y,z) != wetN)&&
-        (world.getBlockName(x+1,y,z) != "Canal:canalclose")&&
-        (world.getBlockName(x+1,y,z) != "Canal:canalcloseE")
-){
-    world.setBlock(x,y,z,"Canal:canalcloseE")
-}"                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canalwetE"            }            [4]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-if(
-(world.getBlockName(x+1,y,z) == "Canal:canaldryE")||
-(world.getBlockName(x+1,y,z) == "Canal:canaldryC")||
-(world.getBlockName(x+1,y,z) == "Canal:canaldryN-W")||
-(world.getBlockName(x+1,y,z) == "Canal:canaldryE-S")||
-(world.getBlockName(x+1,y,z) == "Canal:canaldryE-N")
-){
-world.setBlock(x,y,z,"Canal:canaldryC")
-}
-////////////////////////////////////////////////////
-var WATER = "minecraft:water"
-var N     = "Canal:canalwet"
-var E     = "Canal:canalwetE"
-var C     = "Canal:canalwetC"
-var EN    = "Canal:canalwetE-N"
-var ES    = "Canal:canalwetE-S"
-var NE    = "Canal:canalwetN-E"
-var NW    = "Canal:canalwetN-W"
-
-if (
-    ((world.getBlockName(x-1,y,z) == WATER)&&(world.getBlockMetadata(x-1,y,z) == 0))||
-    (world.getBlockName(x-1,y,z) == C)||
-    (world.getBlockName(x-1,y,z) == E)||
-    (world.getBlockName(x-1,y,z) == NE)||
-    (world.getBlockName(x-1,y,z) == ES)||
-    (world.getBlockName(x-1,y,z) == EN)
-){
-    world.setBlock(x,y,z,NW)
-}
-//if (
-//    ((world.getBlockName(x+1,y,z) == WATER)&&(world.getBlockMetadata(x+1,y,z) == 0))||
-//    (world.getBlockName(x+1,y,z) == C)||
-//    (world.getBlockName(x+1,y,z) == E)||
-//    (world.getBlockName(x+1,y,z) == NW)||
-//    (world.getBlockName(x+1,y,z) == ES)||
-//    (world.getBlockName(x+1,y,z) == EN)
-//){
-//    world.setBlock(x,y,z,NW)
-//}
-if (
-    ((world.getBlockName(x,y,z-1) == WATER)&&(world.getBlockMetadata(x+1,y,z-1) == 0))||
-    (world.getBlockName(x,y,z-1) == C)||
-    (world.getBlockName(x,y,z-1) == N)||
-    (world.getBlockName(x,y,z-1) == NE)||
-    (world.getBlockName(x,y,z-1) == NW)||
-    (world.getBlockName(x,y,z-1) == ES)
-){
-    world.setBlock(x,y,z,NW)
-}
-if (
-    ((world.getBlockName(x,y,z+1) == WATER)&&(world.getBlockMetadata(x+1,y,z+1) == 0))||
-    (world.getBlockName(x,y,z+1) == C)||
-    (world.getBlockName(x,y,z+1) == N)||
-    (world.getBlockName(x,y,z+1) == NE)||
-    (world.getBlockName(x,y,z+1) == NW)||
-    (world.getBlockName(x,y,z+1) == EN)
-){
-    world.setBlock(x,y,z,NW)
-}
-if (
-    (world.getBlockName(x-1,y,z) == "minecraft:air")
-){
-    world.setBlock(x,y,z,"Canal:canaldry")
-}"                  }                  onBreak: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-////////////////////////////////////////////////////
-//var WATER = "minecraft:water"
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-//////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////
-//W
-if (
-    (world.getBlockName(x-1,y,z) == dryNE)
-){
-    world.setBlock(x-1,y,z,dryN)
-}
-//E
-if (
-    (world.getBlockName(x+1,y,z) == dryNW)
-){
-    world.setBlock(x+1,y,z,dryN)
-}
-//N
-if (
-    (world.getBlockName(x,y,z-1) == dryES)
-){
-    world.setBlock(x,y,z-1,dryE)
-}
-//S
-if (
-    (world.getBlockName(x,y,z+1) == dryEN)
-){
-    world.setBlock(x,y,z+1,dryE)
-}
-////////////////////////////////////////
-//W
-if (
-    (world.getBlockName(x-1,y,z) == dryC)
-){
-    world.setBlock(x-1,y,z,dryNW)
-}
-//E
-//if (
-//    (world.getBlockName(x+1,y,z) == dryC)
-//){
-//    world.setBlock(x+1,y,z,dryNE)
-//}
-//N
-if (
-    (world.getBlockName(x,y,z-1) == dryC)
-){
-    world.setBlock(x,y,z-1,dryEN)
-}
-//S
-if (
-    (world.getBlockName(x,y,z+1) == dryC)
-){
-    world.setBlock(x,y,z+1,dryES)
-}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopC2"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canaldryN-W"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canaldryN-W"            }            [5]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-if(
-(world.getBlockName(x-1,y,z) == "Canal:canaldryE")||
-(world.getBlockName(x-1,y,z) == "Canal:canaldryC")||
-(world.getBlockName(x-1,y,z) == "Canal:canaldryN-E")||
-(world.getBlockName(x-1,y,z) == "Canal:canaldryE-N")||
-(world.getBlockName(x-1,y,z) == "Canal:canaldryE-S")
-){
-world.setBlock(x,y,z,"Canal:canaldryC")
-}
-////////////////////////////////////////////////////
-var WATER = "minecraft:water"
-var N     = "Canal:canalwet"
-var E     = "Canal:canalwetE"
-var C     = "Canal:canalwetC"
-var EN    = "Canal:canalwetE-N"
-var ES    = "Canal:canalwetE-S"
-var NE    = "Canal:canalwetN-E"
-var NW    = "Canal:canalwetN-W"
-
-//if (
-//    ((world.getBlockName(x-1,y,z) == WATER)&&(world.getBlockMetadata(x-1,y,z) == 0))||
-//    (world.getBlockName(x-1,y,z) == C)||
-//    (world.getBlockName(x-1,y,z) == E)||
-//    (world.getBlockName(x-1,y,z) == NE)||
-//    (world.getBlockName(x-1,y,z) == ES)||
-//    (world.getBlockName(x-1,y,z) == EN)
-//){
-//    world.setBlock(x,y,z,NE)
-//}
-if (
-    ((world.getBlockName(x+1,y,z) == WATER)&&(world.getBlockMetadata(x+1,y,z) == 0))||
-    (world.getBlockName(x+1,y,z) == C)||
-    (world.getBlockName(x+1,y,z) == E)||
-    (world.getBlockName(x+1,y,z) == NW)||
-    (world.getBlockName(x+1,y,z) == ES)||
-    (world.getBlockName(x+1,y,z) == EN)
-){
-    world.setBlock(x,y,z,NE)
-}
-if (
-    ((world.getBlockName(x,y,z-1) == WATER)&&(world.getBlockMetadata(x+1,y,z-1) == 0))||
-    (world.getBlockName(x,y,z-1) == C)||
-    (world.getBlockName(x,y,z-1) == N)||
-    (world.getBlockName(x,y,z-1) == NE)||
-    (world.getBlockName(x,y,z-1) == NW)||
-    (world.getBlockName(x,y,z-1) == ES)
-){
-    world.setBlock(x,y,z,NE)
-}
-if (
-    ((world.getBlockName(x,y,z+1) == WATER)&&(world.getBlockMetadata(x+1,y,z+1) == 0))||
-    (world.getBlockName(x,y,z+1) == C)||
-    (world.getBlockName(x,y,z+1) == N)||
-    (world.getBlockName(x,y,z+1) == NE)||
-    (world.getBlockName(x,y,z+1) == NW)||
-    (world.getBlockName(x,y,z+1) == EN)
-){
-    world.setBlock(x,y,z,NE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == "minecraft:air")
-){
-    world.setBlock(x,y,z,"Canal:canaldry")
-}"                  }                  onBreak: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-////////////////////////////////////////////////////
-//var WATER = "minecraft:water"
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-//////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////
-//W
-if (
-    (world.getBlockName(x-1,y,z) == dryNE)
-){
-    world.setBlock(x-1,y,z,dryN)
-}
-//E
-if (
-    (world.getBlockName(x+1,y,z) == dryNW)
-){
-    world.setBlock(x+1,y,z,dryN)
-}
-//N
-if (
-    (world.getBlockName(x,y,z-1) == dryES)
-){
-    world.setBlock(x,y,z-1,dryE)
-}
-//S
-if (
-    (world.getBlockName(x,y,z+1) == dryEN)
-){
-    world.setBlock(x,y,z+1,dryE)
-}
-////////////////////////////////////////
-//W
-//if (
-//    (world.getBlockName(x-1,y,z) == dryC)
-//){
-//    world.setBlock(x-1,y,z,dryNW)
-//}
-//E
-if (
-    (world.getBlockName(x+1,y,z) == dryC)
-){
-    world.setBlock(x+1,y,z,dryNE)
-}
-//N
-if (
-    (world.getBlockName(x,y,z-1) == dryC)
-){
-    world.setBlock(x,y,z-1,dryEN)
-}
-//S
-if (
-    (world.getBlockName(x,y,z+1) == dryC)
-){
-    world.setBlock(x,y,z+1,dryES)
-}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopC1"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canaldryN-E"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canaldryN-E"            }            [6]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-if(
-(world.getBlockName(x,y,z-1) == "Canal:canaldry")||
-(world.getBlockName(x,y,z-1) == "Canal:canaldryC")||
-(world.getBlockName(x,y,z-1) == "Canal:canaldryN-E")||
-(world.getBlockName(x,y,z-1) == "Canal:canaldryN-W")||
-(world.getBlockName(x,y,z-1) == "Canal:canaldryE-N")
-){
-world.setBlock(x,y,z,"Canal:canaldryC")
-}
-////////////////////////////////////////////////////
-var WATER = "minecraft:water"
-var N     = "Canal:canalwet"
-var E     = "Canal:canalwetE"
-var C     = "Canal:canalwetC"
-var EN    = "Canal:canalwetE-N"
-var ES    = "Canal:canalwetE-S"
-var NE    = "Canal:canalwetN-E"
-var NW    = "Canal:canalwetN-W"
-
-if (
-    ((world.getBlockName(x-1,y,z) == WATER)&&(world.getBlockMetadata(x-1,y,z) == 0))||
-    (world.getBlockName(x-1,y,z) == C)||
-    (world.getBlockName(x-1,y,z) == E)||
-    (world.getBlockName(x-1,y,z) == NE)||
-    (world.getBlockName(x-1,y,z) == ES)||
-    (world.getBlockName(x-1,y,z) == EN)
-){
-    world.setBlock(x,y,z,"Canal:canalwetE-S")
-}
-if (
-    ((world.getBlockName(x+1,y,z) == WATER)&&(world.getBlockMetadata(x+1,y,z) == 0))||
-    (world.getBlockName(x+1,y,z) == C)||
-    (world.getBlockName(x+1,y,z) == E)||
-    (world.getBlockName(x+1,y,z) == NW)||
-    (world.getBlockName(x+1,y,z) == ES)||
-    (world.getBlockName(x+1,y,z) == EN)
-){
-    world.setBlock(x,y,z,"Canal:canalwetE-S")
-}
-//if (
-//    ((world.getBlockName(x,y,z-1) == WATER)&&(world.getBlockMetadata(x+1,y,z-1) == 0))||
-//    (world.getBlockName(x,y,z-1) == C)||
-//    (world.getBlockName(x,y,z-1) == N)||
-//    (world.getBlockName(x,y,z-1) == NE)||
-//    (world.getBlockName(x,y,z-1) == NW)||
-//    (world.getBlockName(x,y,z-1) == ES)
-//){
-//    world.setBlock(x,y,z,"Canal:canalwetE-S")
-//}
-if (
-    ((world.getBlockName(x,y,z+1) == WATER)&&(world.getBlockMetadata(x+1,y,z+1) == 0))||
-    (world.getBlockName(x,y,z+1) == C)||
-    (world.getBlockName(x,y,z+1) == N)||
-    (world.getBlockName(x,y,z+1) == NE)||
-    (world.getBlockName(x,y,z+1) == NW)||
-    (world.getBlockName(x,y,z+1) == EN)
-){
-    world.setBlock(x,y,z,"Canal:canalwetE-S")
-}
-if (
-    (world.getBlockName(x,y,z+1) == "minecraft:air")
-){
-    world.setBlock(x,y,z,"Canal:canaldryE")
-}"                  }                  onBreak: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-////////////////////////////////////////////////////
-//var WATER = "minecraft:water"
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-//////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////
-//W
-if (
-    (world.getBlockName(x-1,y,z) == dryNE)
-){
-    world.setBlock(x-1,y,z,dryN)
-}
-//E
-if (
-    (world.getBlockName(x+1,y,z) == dryNW)
-){
-    world.setBlock(x+1,y,z,dryN)
-}
-//N
-if (
-    (world.getBlockName(x,y,z-1) == dryES)
-){
-    world.setBlock(x,y,z-1,dryE)
-}
-//S
-if (
-    (world.getBlockName(x,y,z+1) == dryEN)
-){
-    world.setBlock(x,y,z+1,dryE)
-}
-////////////////////////////////////////
-//W
-if (
-    (world.getBlockName(x-1,y,z) == dryC)
-){
-    world.setBlock(x-1,y,z,dryNW)
-}
-//E
-if (
-    (world.getBlockName(x+1,y,z) == dryC)
-){
-    world.setBlock(x+1,y,z,dryNE)
-}
-//N
-//if (
-//    (world.getBlockName(x,y,z-1) == dryC)
-//){
-//    world.setBlock(x,y,z-1,dryEN)
-//}
-//S
-if (
-    (world.getBlockName(x,y,z+1) == dryC)
-){
-    world.setBlock(x,y,z+1,dryES)
-}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopC4"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                     Value: ""                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canaldryE-S"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: ""                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canaldryE-S"            }            [7]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-if(
-(world.getBlockName(x,y,z+1) == "Canal:canaldry")||
-(world.getBlockName(x,y,z+1) == "Canal:canaldryC")||
-(world.getBlockName(x,y,z+1) == "Canal:canaldryN-E")||
-(world.getBlockName(x,y,z+1) == "Canal:canaldryN-W")||
-(world.getBlockName(x,y,z+1) == "Canal:canaldryE-N")
-){
-world.setBlock(x,y,z,"Canal:canaldryC")
-}
-////////////////////////////////////////////////////
-var WATER = "minecraft:water"
-var N     = "Canal:canalwet"
-var E     = "Canal:canalwetE"
-var C     = "Canal:canalwetC"
-var EN    = "Canal:canalwetE-N"
-var ES    = "Canal:canalwetE-S"
-var NE    = "Canal:canalwetN-E"
-var NW    = "Canal:canalwetN-W"
-
-if (
-      ((world.getBlockName(x-1,y,z) == WATER)&&(world.getBlockMetadata(x-1,y,z) == 0))||
-    (world.getBlockName(x-1,y,z) == C)||
-    (world.getBlockName(x-1,y,z) == E)||
-    (world.getBlockName(x-1,y,z) == NE)||
-    (world.getBlockName(x-1,y,z) == ES)||
-    (world.getBlockName(x-1,y,z) == EN)
-){
-    world.setBlock(x,y,z,"Canal:canalwetE-N")
-}
-if (
-      ((world.getBlockName(x+1,y,z) == WATER)&&(world.getBlockMetadata(x+1,y,z) == 0))||
-    (world.getBlockName(x+1,y,z) == C)||
-    (world.getBlockName(x+1,y,z) == E)||
-    (world.getBlockName(x+1,y,z) == NW)||
-    (world.getBlockName(x+1,y,z) == ES)||
-    (world.getBlockName(x+1,y,z) == EN)
-){
-    world.setBlock(x,y,z,"Canal:canalwetE-N")
-}
-if (
-     // ((world.getBlockName(x,y,z-1) == WATER)&&(world.getBlockMetadata(x+1,y,z-1) == 0))||
-    (world.getBlockName(x,y,z-1) == C)||
-    (world.getBlockName(x,y,z-1) == N)||
-    (world.getBlockName(x,y,z-1) == NE)||
-    (world.getBlockName(x,y,z-1) == NW)||
-    (world.getBlockName(x,y,z-1) == ES)
-){
-    world.setBlock(x,y,z,"Canal:canalwetE-N")
-}
-//if (
-//    ((world.getBlockName(x,y,z+1) == WATER)&&(world.getBlockMetadata(x+1,y,z+1) == 0))||
-//    (world.getBlockName(x,y,z+1) == C)||
-//    (world.getBlockName(x,y,z+1) == N)||
-//    (world.getBlockName(x,y,z+1) == NE)||
-//    (world.getBlockName(x,y,z+1) == NW)||
-//    (world.getBlockName(x,y,z+1) == EN)
-//){
-//    world.setBlock(x,y,z,"Canal:canalwetE-N")
-//}
-if (
-    (world.getBlockName(x,y,z-1) == "minecraft:air")
-){
-    world.setBlock(x,y,z,"Canal:canaldryE")
-}"                  }                  onBreak: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-////////////////////////////////////////////////////
-//var WATER = "minecraft:water"
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-//////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////
-//W
-if (
-    (world.getBlockName(x-1,y,z) == dryNE)
-){
-    world.setBlock(x-1,y,z,dryN)
-}
-//E
-if (
-    (world.getBlockName(x+1,y,z) == dryNW)
-){
-    world.setBlock(x+1,y,z,dryN)
-}
-//N
-if (
-    (world.getBlockName(x,y,z-1) == dryES)
-){
-    world.setBlock(x,y,z-1,dryE)
-}
-//S
-if (
-    (world.getBlockName(x,y,z+1) == dryEN)
-){
-    world.setBlock(x,y,z+1,dryE)
-}
-//////////////////////////////////////////
-//W
-if (
-    (world.getBlockName(x-1,y,z) == dryC)
-){
-    world.setBlock(x-1,y,z,dryNW)
-}
-//E
-if (
-    (world.getBlockName(x+1,y,z) == dryC)
-){
-    world.setBlock(x+1,y,z,dryNE)
-}
-//N
-if (
-    (world.getBlockName(x,y,z-1) == dryC)
-){
-    world.setBlock(x,y,z-1,dryEN)
-}
-//S
-//if (
-//    (world.getBlockName(x,y,z+1) == dryC)
-//){
-//    world.setBlock(x,y,z+1,dryES)
-//}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopC3"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canaldryE-N"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                     Value: ""                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: ""                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canaldryE-N"            }            [8]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-
-var water    = "minecraft:water"
-var wetC     = "Canal:canalwetC"
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-//////////////////////////////////
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-//////////////////////////////////
-if(
-(world.getBlockName(x,y,z-1) == dryE)
-){
-world.setBlock(x,y,z-1,ES)
-}
-if(
-(world.getBlockName(x,y,z+1) == dryE)
-){
-world.setBlock(x,y,z+1,EN)
-}
-if(
-(world.getBlockName(x+1,y,z) == dryN)
-){
-world.setBlock(x+1,y,z,NW)
-}
-if(
-(world.getBlockName(x-1,y,z) == dryN)
-){
-world.setBlock(x-1,y,z,NE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == "minecraft:air")
-){
-    world.setBlock(x,y,z,dryNE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == "minecraft:air")
-){
-    world.setBlock(x,y,z,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z-1) == "minecraft:air")
-){
-    world.setBlock(x,y,z,dryES)
-}
-if (
-    (world.getBlockName(x,y,z+1) == "minecraft:air")
-){
-    world.setBlock(x,y,z,dryEN)
-}
-/////////////////////////////////////////////////////
-if (
-    (world.getBlockName(x-1,y,z) == water)&&(world.getBlockMetadata(x-1,y,z) == 0)
-){
-    world.setBlock(x,y,z,wetC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == water)&&(world.getBlockMetadata(x-1,y,z) == 0)
-){
-    world.setBlock(x,y,z,wetC)
-}
-if (
-    (world.getBlockName(x,y,z-1) == water)&&(world.getBlockMetadata(x-1,y,z) == 0)
-){
-    world.setBlock(x,y,z,wetC)
-}
-if (
-    (world.getBlockName(x,y,z+1) == water)&&(world.getBlockMetadata(x-1,y,z) == 0)
-){
-    world.setBlock(x,y,z,wetC)
-}"                  }                  onBreak: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-////////////////////////////////////////////////////
-//var WATER = "minecraft:water"
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-//////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////
-//W
-if (
-    (world.getBlockName(x-1,y,z) == dryNE)
-){
-    world.setBlock(x-1,y,z,dryN)
-}
-//E
-if (
-    (world.getBlockName(x+1,y,z) == dryNW)
-){
-    world.setBlock(x+1,y,z,dryN)
-}
-//N
-if (
-    (world.getBlockName(x,y,z-1) == dryES)
-){
-    world.setBlock(x,y,z-1,dryE)
-}
-//S
-if (
-    (world.getBlockName(x,y,z+1) == dryEN)
-){
-    world.setBlock(x,y,z+1,dryE)
-}
-////////////////////////////////////////"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopC"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canaldryC"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                     Value: ""                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canaldryC"            }            [9]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-////////////////////////////////////////////////////
-var air      = "minecraft:air"
-var water    = "minecraft:water"
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-//////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-
-//W
-if (
-    (world.getBlockName(x-1,y,z) == dryNW)
-){
-    world.setBlock(x-1,y,z,wetC)
-}
-
-if (
-    (world.getBlockName(x-1,y,z) == dryC)
-){
-    world.setBlock(x-1,y,z,wetC)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryE)
-){ 
-    world.setBlock(x-1,y,z,wetE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryNE)
-){ 
-    world.setBlock(x-1,y,z,wetNE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryES)
-){ 
-    world.setBlock(x-1,y,z,wetES)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryEN)
-){ 
-    world.setBlock(x-1,y,z,wetEN)
-}
-
-//E
-if (
-    (world.getBlockName(x+1,y,z) == dryNE)
-){
-    world.setBlock(x+1,y,z,wetC)
-}
-
-if (
-    (world.getBlockName(x+1,y,z) == dryC)
-){ 
-    world.setBlock(x+1,y,z,wetC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryE)
-){ 
-    world.setBlock(x+1,y,z,wetE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryNW)
-){ 
-    world.setBlock(x+1,y,z,wetNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryES)
-){ 
-    world.setBlock(x+1,y,z,wetES)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryEN)
-){ 
-    world.setBlock(x+1,y,z,wetEN)
-}
-
-//N
-if (
-    (world.getBlockName(x,y,z-1) == dryEN)
-){ 
-    world.setBlock(x,y,z-1,wetC)
-}
-
-if (
-    (world.getBlockName(x,y,z-1) == dryC)
-){ 
-    world.setBlock(x,y,z-1,wetC)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryN)
-){ 
-    world.setBlock(x,y,z-1,wetN)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryNE)
-){ 
-    world.setBlock(x,y,z-1,wetNE)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryNW)
-){ 
-    world.setBlock(x,y,z-1,wetNW)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryES)
-){ 
-    world.setBlock(x,y,z-1,wetES)
-}
-
-//S
-if (
-    (world.getBlockName(x,y,z+1) == dryES)
-){ 
-    world.setBlock(x,y,z+1,wetC)
-}
-
-if (
-    (world.getBlockName(x,y,z+1) == dryC)
-){ 
-    world.setBlock(x,y,z+1,wetC)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryN)
-){ 
-    world.setBlock(x,y,z+1,wetN)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryNE)
-){ 
-    world.setBlock(x,y,z+1,wetNE)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryNW)
-){ 
-    world.setBlock(x,y,z+1,wetNW)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryEN)
-){ 
-    world.setBlock(x,y,z+1,wetEN)
-}
-//////////////////////////////////////////
-if (
-    (world.getBlockName(x,y,z+1) == air)
-){ 
-    world.setBlockAndMetadata(x,y,z+1,water,1)
-}
-if (
-    (world.getBlockName(x,y,z-1) == air)
-){ 
-    world.setBlockAndMetadata(x,y,z-1,water,1)
-}
-if (
-    (world.getBlockName(x-1,y,z) == air)
-){ 
-    world.setBlockAndMetadata(x-1,y,z,water,1)
-}
-if (
-    (world.getBlockName(x+1,y,z) == air)
-){ 
-    world.setBlockAndMetadata(x+1,y,z,water,1)
-}"                  }                  onBreak: {                     Value: "
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-
-//W
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetE)
-){ 
-    world.setBlock(x-1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetNE)
-){ 
-    world.setBlock(x-1,y,z,dryNE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetES)
-){ 
-    world.setBlock(x-1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetEN)
-){ 
-    world.setBlock(x-1,y,z,dryEN)
-}
-
-//E
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){
-    world.setBlock(x+1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){ 
-    world.setBlock(x+1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetE)
-){ 
-    world.setBlock(x+1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetNW)
-){ 
-    world.setBlock(x+1,y,z,dryNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetES)
-){ 
-    world.setBlock(x+1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetEN)
-){ 
-    world.setBlock(x+1,y,z,dryEN)
-}
-
-//N
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetN)
-){ 
-    world.setBlock(x,y,z-1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNE)
-){ 
-    world.setBlock(x,y,z-1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNW)
-){ 
-    world.setBlock(x,y,z-1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetES)
-){ 
-    world.setBlock(x,y,z-1,dryES)
-}
-
-//S
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetN)
-){ 
-    world.setBlock(x,y,z+1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNE)
-){ 
-    world.setBlock(x,y,z+1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNW)
-){ 
-    world.setBlock(x,y,z+1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetEN)
-){ 
-    world.setBlock(x,y,z+1,dryEN)
-}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopWetC"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canalwetC"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: "var inv = player.getInventory()
-var i = player.getCurrentSlot()
-var n = inv.getStackSize(i)
-var name = inv.getItemName(i)
-///////////////////////////////////////////////
-if (
-name == "minecraft:glass_bottle"
-){
-player.swingItem()
-//world.setBlock(x,y,z,"Canal:canaldryfake")
-inv.remove("minecraft:glass_bottle", 0, 1)
-//player.dropItem("minecraft:potion",0,1)
-inv.add("minecraft:potion",0,1)
-//world.setBlock(x,y,z,"Canal:canaldry")
-//world.spawnItem(position,"minecraft:potion",0,1)
-}"                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-////////////////////////////////////////////////////
-var water    = "minecraft:water"
-var air      = "minecraft:air" 
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-////////////////////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////////////////
-if(
-    (world.getBlockName(x-1,y,z) != air)&&
-    (world.getBlockName(x-1,y,z) != water)&&
-    (world.getBlockName(x-1,y,z) != wetE)&&
-    (world.getBlockName(x-1,y,z) != wetNE)&&
-    (world.getBlockName(x-1,y,z) != wetNW)&&
-    (world.getBlockName(x-1,y,z) != wetES)&&
-    (world.getBlockName(x-1,y,z) != dryES)&&
-    (world.getBlockName(x-1,y,z) != wetEN)&&
-    (world.getBlockName(x-1,y,z) != dryEN)&&
-    (world.getBlockName(x-1,y,z) != wetC)&&
-    (world.getBlockName(x-1,y,z) != dryC)&&
-    (world.getBlockName(x-1,y,z) != dryE)&&
-    (world.getBlockName(x-1,y,z) != dryNE)&&
-    (world.getBlockName(x-1,y,z) != dryNW)&&
-    (world.getBlockName(x-1,y,z) != dryN)&&
-    (world.getBlockName(x-1,y,z) != wetN)&&
-        (world.getBlockName(x-1,y,z) != "Canal:canalcloseE")&&
-        (world.getBlockName(x-1,y,z) != "Canal:canalclose")
-){
-    world.setBlock(x,y,z,"Canal:canalcloseE")
-}
-if(
-    (world.getBlockName(x+1,y,z) != air)&&
-    (world.getBlockName(x+1,y,z) != water)&&
-    (world.getBlockName(x+1,y,z) != wetE)&&
-    (world.getBlockName(x+1,y,z) != wetNE)&&
-    (world.getBlockName(x+1,y,z) != wetNW)&&
-    (world.getBlockName(x+1,y,z) != wetES)&&
-    (world.getBlockName(x+1,y,z) != dryES)&&
-    (world.getBlockName(x+1,y,z) != wetEN)&&
-    (world.getBlockName(x+1,y,z) != dryEN)&&
-    (world.getBlockName(x+1,y,z) != wetC)&&
-    (world.getBlockName(x+1,y,z) != dryC)&&
-    (world.getBlockName(x+1,y,z) != dryE)&&
-    (world.getBlockName(x+1,y,z) != dryNE)&&
-    (world.getBlockName(x+1,y,z) != dryNW)&&
-    (world.getBlockName(x+1,y,z) != dryN)&&
-    (world.getBlockName(x+1,y,z) != wetN)&&
-        (world.getBlockName(x+1,y,z) != "Canal:canalcloseE")&&
-        (world.getBlockName(x+1,y,z) != "Canal:canalclose")
-){
-    world.setBlock(x,y,z,"Canal:canalcloseE")
-}
-if(
-    (world.getBlockName(x,y,z-1) != air)&&
-    (world.getBlockName(x,y,z-1) != water)&&
-    (world.getBlockName(x,y,z-1) != wetN)&&
-    (world.getBlockName(x,y,z-1) != wetNE)&&
-    (world.getBlockName(x,y,z-1) != wetNW)&&
-    (world.getBlockName(x,y,z-1) != wetES)&&
-    (world.getBlockName(x,y,z-1) != dryES)&&
-    (world.getBlockName(x,y,z-1) != wetEN)&&
-    (world.getBlockName(x,y,z-1) != dryEN)&&
-    (world.getBlockName(x,y,z-1) != wetC)&&
-    (world.getBlockName(x,y,z-1) != dryC)&&
-    (world.getBlockName(x,y,z-1) != dryN)&&
-    (world.getBlockName(x,y,z-1) != dryE)&&
-    (world.getBlockName(x,y,z-1) != wetE)&&
-    (world.getBlockName(x,y,z-1) != dryNE)&&
-    (world.getBlockName(x,y,z-1) != dryNW)&&
-        (world.getBlockName(x,y,z-1) != "Canal:canalcloseE")&&
-        (world.getBlockName(x,y,z-1) != "Canal:canalclose")
-){
-    world.setBlock(x,y,z,"Canal:canalclose")
-}
-if(
-    (world.getBlockName(x,y,z+1) != air)&&
-    (world.getBlockName(x,y,z+1) != water)&&
-    (world.getBlockName(x,y,z+1) != wetN)&&
-    (world.getBlockName(x,y,z+1) != wetNE)&&
-    (world.getBlockName(x,y,z+1) != wetNW)&&
-    (world.getBlockName(x,y,z+1) != wetES)&&
-    (world.getBlockName(x,y,z+1) != dryES)&&
-    (world.getBlockName(x,y,z+1) != wetEN)&&
-    (world.getBlockName(x,y,z+1) != dryEN)&&
-    (world.getBlockName(x,y,z+1) != wetC)&&
-    (world.getBlockName(x,y,z+1) != dryC)&&
-    (world.getBlockName(x,y,z+1) != dryN)&&
-    (world.getBlockName(x,y,z+1) != dryNE)&&
-    (world.getBlockName(x,y,z+1) != dryE)&&
-    (world.getBlockName(x,y,z+1) != wetE)&&
-    (world.getBlockName(x,y,z+1) != dryNW)&&
-        (world.getBlockName(x,y,z+1) != "Canal:canalcloseE")&&
-        (world.getBlockName(x,y,z+1) != "Canal:canalclose")
-){
-    world.setBlock(x,y,z,"Canal:canalclose")
-}"                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canalwetC"            }            [10]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-    //(world.getBlockName(x-1,y,z) == WATER)
-        //(world.getBlockName(x+1,y,z) == WATER)
-            //(world.getBlockName(x,y,z-1) == WATER)
-                            //(world.getBlockName(x,y,z+1) == WATER)
-
-////////////////////////////////////////////////////
-//var WATER = "minecraft:water"
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-//////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-if (
-    (world.getBlockName(x,y,z+1) == dryN)
-){
-    world.setBlock(x,y,z,wetC)
-}
-//W
-if (
-    (world.getBlockName(x-1,y,z) == dryN)
-){
-    world.setBlock(x-1,y,z,wetNE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryNW)
-){
-    world.setBlock(x-1,y,z,wetC)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryC)
-){
-    world.setBlock(x-1,y,z,wetC)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryE)
-){ 
-    world.setBlock(x-1,y,z,wetE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryNE)
-){ 
-    world.setBlock(x-1,y,z,wetNE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryES)
-){ 
-    world.setBlock(x-1,y,z,wetES)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryEN)
-){ 
-    world.setBlock(x-1,y,z,wetEN)
-}
-
-//E
-if (
-    (world.getBlockName(x+1,y,z) == dryN)
-){ 
-    world.setBlock(x+1,y,z,wetNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryNE)
-){ 
-    world.setBlock(x+1,y,z,wetC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryC)
-){ 
-    world.setBlock(x+1,y,z,wetC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryE)
-){ 
-    world.setBlock(x+1,y,z,wetE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryNW)
-){ 
-    world.setBlock(x+1,y,z,wetNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryES)
-){ 
-    world.setBlock(x+1,y,z,wetES)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryEN)
-){ 
-    world.setBlock(x+1,y,z,wetEN)
-}
-
-//N
-if (
-    (world.getBlockName(x,y,z-1) == "minecraft:air")
-){ 
-    world.setBlock(x,y,z,wetE)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryEN)
-){ 
-    world.setBlock(x,y,z-1,wetC)
-}
-
-if (
-    (world.getBlockName(x,y,z-1) == dryC)
-){ 
-    world.setBlock(x,y,z-1,wetC)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryN)
-){ 
-    world.setBlock(x,y,z-1,wetN)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryNE)
-){ 
-    world.setBlock(x,y,z-1,wetNE)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryNW)
-){ 
-    world.setBlock(x,y,z-1,wetNW)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryES)
-){ 
-    world.setBlock(x,y,z-1,wetES)
-}
-
-//S
-//if (
-//    (world.getBlockName(x,y,z+1) == dryC)
-//){ 
-//    world.setBlock(x,y,z+1,wetC)
-//}
-//if (
-//    (world.getBlockName(x,y,z+1) == dryN)
-//){ 
-//    world.setBlock(x,y,z+1,wetN)
-//}
-//if (
-//    (world.getBlockName(x,y,z+1) == dryNE)
-//){ 
-//    world.setBlock(x,y,z+1,wetNE)
-//}
-//if (
-//    (world.getBlockName(x,y,z+1) == dryNW)
-//){ 
-//    world.setBlock(x,y,z+1,wetNW)
-//}
-//if (
-//    (world.getBlockName(x,y,z+1) == dryEN)
-//){ 
-//    world.setBlock(x,y,z+1,wetEN)
-//}
-//
-/////////////////////////////////////////////////
-if(
-world.getBlockName(x-1,y,z) == "minecraft:air"
-){
-world.setBlockAndMetadata(x-1,y,z,"minecraft:water",1)
-}
-
-if(
-world.getBlockName(x+1,y,z) == "minecraft:air"
-){
-world.setBlockAndMetadata(x+1,y,z,"minecraft:water",1)
-}"                  }                  onBreak: {                     Value: "
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-
-//W
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetE)
-){ 
-    world.setBlock(x-1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetNE)
-){ 
-    world.setBlock(x-1,y,z,dryNE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetES)
-){ 
-    world.setBlock(x-1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetEN)
-){ 
-    world.setBlock(x-1,y,z,dryEN)
-}
-
-//E
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){
-    world.setBlock(x+1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){ 
-    world.setBlock(x+1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetE)
-){ 
-    world.setBlock(x+1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetNW)
-){ 
-    world.setBlock(x+1,y,z,dryNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetES)
-){ 
-    world.setBlock(x+1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetEN)
-){ 
-    world.setBlock(x+1,y,z,dryEN)
-}
-
-//N
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetN)
-){ 
-    world.setBlock(x,y,z-1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNE)
-){ 
-    world.setBlock(x,y,z-1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNW)
-){ 
-    world.setBlock(x,y,z-1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetES)
-){ 
-    world.setBlock(x,y,z-1,dryES)
-}
-
-//S
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetN)
-){ 
-    world.setBlock(x,y,z+1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNE)
-){ 
-    world.setBlock(x,y,z+1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNW)
-){ 
-    world.setBlock(x,y,z+1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetEN)
-){ 
-    world.setBlock(x,y,z+1,dryEN)
-}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopWetC3"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canalwetE-N"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: "var inv = player.getInventory()
-var i = player.getCurrentSlot()
-var n = inv.getStackSize(i)
-var name = inv.getItemName(i)
-///////////////////////////////////////////////
-if (
-name == "minecraft:glass_bottle"
-){
-player.swingItem()
-//world.setBlock(x,y,z,"Canal:canaldryfake")
-inv.remove("minecraft:glass_bottle", 0, 1)
-//player.dropItem("minecraft:potion",0,1)
-inv.add("minecraft:potion",0,1)
-//world.setBlock(x,y,z,"Canal:canaldry")
-//world.spawnItem(position,"minecraft:potion",0,1)
-}"                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-////////////////////////////////////////////////////
-var water    = "minecraft:water"
-var air      = "minecraft:air" 
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-////////////////////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////////////////
-if(
-    (world.getBlockName(x-1,y,z) != air)&&
-    (world.getBlockName(x-1,y,z) != water)&&
-    (world.getBlockName(x-1,y,z) != wetE)&&
-    (world.getBlockName(x-1,y,z) != wetNE)&&
-    (world.getBlockName(x-1,y,z) != wetNW)&&
-    (world.getBlockName(x-1,y,z) != wetES)&&
-    (world.getBlockName(x-1,y,z) != dryES)&&
-    (world.getBlockName(x-1,y,z) != wetEN)&&
-    (world.getBlockName(x-1,y,z) != dryEN)&&
-    (world.getBlockName(x-1,y,z) != wetC)&&
-    (world.getBlockName(x-1,y,z) != dryC)&&
-    (world.getBlockName(x-1,y,z) != dryE)&&
-    (world.getBlockName(x-1,y,z) != dryNE)&&
-    (world.getBlockName(x-1,y,z) != dryNW)&&
-    (world.getBlockName(x-1,y,z) != dryN)&&
-    (world.getBlockName(x-1,y,z) != wetN)&&
-        (world.getBlockName(x-1,y,z) != "Canal:canalclose")&&
-        (world.getBlockName(x-1,y,z) != "Canal:canalcloseE")
-){
-    world.setBlock(x,y,z,"Canal:canalcloseE")
-}
-if(
-    (world.getBlockName(x+1,y,z) != air)&&
-    (world.getBlockName(x+1,y,z) != water)&&
-    (world.getBlockName(x+1,y,z) != wetE)&&
-    (world.getBlockName(x+1,y,z) != wetNE)&&
-    (world.getBlockName(x+1,y,z) != wetNW)&&
-    (world.getBlockName(x+1,y,z) != wetES)&&
-    (world.getBlockName(x+1,y,z) != dryES)&&
-    (world.getBlockName(x+1,y,z) != wetEN)&&
-    (world.getBlockName(x+1,y,z) != dryEN)&&
-    (world.getBlockName(x+1,y,z) != wetC)&&
-    (world.getBlockName(x+1,y,z) != dryC)&&
-    (world.getBlockName(x+1,y,z) != dryE)&&
-    (world.getBlockName(x+1,y,z) != dryNE)&&
-    (world.getBlockName(x+1,y,z) != dryNW)&&
-    (world.getBlockName(x+1,y,z) != dryN)&&
-    (world.getBlockName(x+1,y,z) != wetN)&&
-        (world.getBlockName(x+1,y,z) != "Canal:canalclose")&&
-        (world.getBlockName(x+1,y,z) != "Canal:canalcloseE")
-){
-    world.setBlock(x,y,z,"Canal:canalcloseE")
-}"                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canalwetE-N"            }            [11]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-    //(world.getBlockName(x-1,y,z) == WATER)
-        //(world.getBlockName(x+1,y,z) == WATER)
-            //(world.getBlockName(x,y,z-1) == WATER)
-                            //(world.getBlockName(x,y,z+1) == WATER)
-
-////////////////////////////////////////////////////
-//var WATER = "minecraft:water"
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-//////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-
-if (
-    (world.getBlockName(x-1,y,z) == dryE)
-){
-    world.setBlock(x,y,z,wetC)
-}
-//W
-//if (
-//    (world.getBlockName(x-1,y,z) == dryC)
-//){
-//    world.setBlock(x-1,y,z,wetC)
-//}
-//if (
-//    (world.getBlockName(x-1,y,z) == dryE)
-//){ 
-//    world.setBlock(x-1,y,z,wetE)
-//}
-//if (
-//    (world.getBlockName(x-1,y,z) == dryNE)
-//){ 
-//    world.setBlock(x-1,y,z,wetNE)
-//}
-//if (
-//    (world.getBlockName(x-1,y,z) == dryES)
-//){ 
-//    world.setBlock(x-1,y,z,wetES)
-//}
-//if (
-//    (world.getBlockName(x-1,y,z) == dryEN)
-//){ 
-//    world.setBlock(x-1,y,z,wetEN)
-//}
-
-//E
-if (
-    (world.getBlockName(x+1,y,z) == "minecraft:air")
-){ 
-    world.setBlock(x,y,z,wetN)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryC)
-){ 
-    world.setBlock(x+1,y,z,wetC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryE)
-){ 
-    world.setBlock(x+1,y,z,wetE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryNW)
-){ 
-    world.setBlock(x+1,y,z,wetNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryES)
-){ 
-    world.setBlock(x+1,y,z,wetES)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryEN)
-){ 
-    world.setBlock(x+1,y,z,wetEN)
-}
-
-//N
-if (
-    (world.getBlockName(x,y,z-1) == dryC)
-){ 
-    world.setBlock(x,y,z-1,wetC)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryN)
-){ 
-    world.setBlock(x,y,z-1,wetN)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryNE)
-){ 
-    world.setBlock(x,y,z-1,wetNE)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryNW)
-){ 
-    world.setBlock(x,y,z-1,wetNW)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryES)
-){ 
-    world.setBlock(x,y,z-1,wetES)
-}
-
-//S
-if (
-    (world.getBlockName(x,y,z+1) == dryC)
-){ 
-    world.setBlock(x,y,z+1,wetC)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryN)
-){ 
-    world.setBlock(x,y,z+1,wetN)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryNE)
-){ 
-    world.setBlock(x,y,z+1,wetNE)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryNW)
-){ 
-    world.setBlock(x,y,z+1,wetNW)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryEN)
-){ 
-    world.setBlock(x,y,z+1,wetEN)
-}
-/////////////////////////////////////////////////
-if(
-world.getBlockName(x,y,z-1) == "minecraft:air"
-){
-world.setBlockAndMetadata(x,y,z-1,"minecraft:water",1)
-}
-
-if(
-world.getBlockName(x,y,z+1) == "minecraft:air"
-){
-world.setBlockAndMetadata(x,y,z+1,"minecraft:water",1)
-}"                  }                  onBreak: {                     Value: "
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-
-//W
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetE)
-){ 
-    world.setBlock(x-1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetNE)
-){ 
-    world.setBlock(x-1,y,z,dryNE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetES)
-){ 
-    world.setBlock(x-1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetEN)
-){ 
-    world.setBlock(x-1,y,z,dryEN)
-}
-
-//E
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){
-    world.setBlock(x+1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){ 
-    world.setBlock(x+1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetE)
-){ 
-    world.setBlock(x+1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetNW)
-){ 
-    world.setBlock(x+1,y,z,dryNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetES)
-){ 
-    world.setBlock(x+1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetEN)
-){ 
-    world.setBlock(x+1,y,z,dryEN)
-}
-
-//N
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetN)
-){ 
-    world.setBlock(x,y,z-1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNE)
-){ 
-    world.setBlock(x,y,z-1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNW)
-){ 
-    world.setBlock(x,y,z-1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetES)
-){ 
-    world.setBlock(x,y,z-1,dryES)
-}
-
-//S
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetN)
-){ 
-    world.setBlock(x,y,z+1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNE)
-){ 
-    world.setBlock(x,y,z+1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNW)
-){ 
-    world.setBlock(x,y,z+1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetEN)
-){ 
-    world.setBlock(x,y,z+1,dryEN)
-}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopWetC1"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canalwetN-E"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: "var inv = player.getInventory()
-var i = player.getCurrentSlot()
-var n = inv.getStackSize(i)
-var name = inv.getItemName(i)
-///////////////////////////////////////////////
-if (
-name == "minecraft:glass_bottle"
-){
-player.swingItem()
-//world.setBlock(x,y,z,"Canal:canaldryfake")
-inv.remove("minecraft:glass_bottle", 0, 1)
-//player.dropItem("minecraft:potion",0,1)
-inv.add("minecraft:potion",0,1)
-//world.setBlock(x,y,z,"Canal:canaldry")
-//world.spawnItem(position,"minecraft:potion",0,1)
-}"                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-////////////////////////////////////////////////////
-var water    = "minecraft:water"
-var air      = "minecraft:air" 
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-////////////////////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////////////////
-if(
-    (world.getBlockName(x,y,z-1) != air)&&
-    (world.getBlockName(x,y,z-1) != water)&&
-    (world.getBlockName(x,y,z-1) != wetN)&&
-    (world.getBlockName(x,y,z-1) != wetNE)&&
-    (world.getBlockName(x,y,z-1) != wetNW)&&
-    (world.getBlockName(x,y,z-1) != wetES)&&
-    (world.getBlockName(x,y,z-1) != dryES)&&
-    (world.getBlockName(x,y,z-1) != wetEN)&&
-    (world.getBlockName(x,y,z-1) != dryEN)&&
-    (world.getBlockName(x,y,z-1) != wetC)&&
-    (world.getBlockName(x,y,z-1) != dryC)&&
-    (world.getBlockName(x,y,z-1) != dryN)&&
-    (world.getBlockName(x,y,z-1) != dryE)&&
-    (world.getBlockName(x,y,z-1) != wetE)&&
-    (world.getBlockName(x,y,z-1) != dryNE)&&
-    (world.getBlockName(x,y,z-1) != dryNW)&&
-        (world.getBlockName(x,y,z-1) != "Canal:canalclose")&&
-        (world.getBlockName(x,y,z-1) != "Canal:canalcloseE")
-){
-    world.setBlock(x,y,z,"Canal:canalclose")
-}
-if(
-    (world.getBlockName(x,y,z+1) != air)&&
-    (world.getBlockName(x,y,z+1) != water)&&
-    (world.getBlockName(x,y,z+1) != wetN)&&
-    (world.getBlockName(x,y,z+1) != wetNE)&&
-    (world.getBlockName(x,y,z+1) != wetNW)&&
-    (world.getBlockName(x,y,z+1) != wetES)&&
-    (world.getBlockName(x,y,z+1) != dryES)&&
-    (world.getBlockName(x,y,z+1) != wetEN)&&
-    (world.getBlockName(x,y,z+1) != dryEN)&&
-    (world.getBlockName(x,y,z+1) != wetC)&&
-    (world.getBlockName(x,y,z+1) != dryC)&&
-    (world.getBlockName(x,y,z+1) != dryN)&&
-    (world.getBlockName(x,y,z+1) != dryNE)&&
-    (world.getBlockName(x,y,z+1) != dryE)&&
-    (world.getBlockName(x,y,z+1) != wetE)&&
-    (world.getBlockName(x,y,z+1) != dryNW)&&
-        (world.getBlockName(x,y,z+1) != "Canal:canalclose")&&
-        (world.getBlockName(x,y,z+1) != "Canal:canalcloseE")
-){
-    world.setBlock(x,y,z,"Canal:canalclose")
-}"                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canalwetN-E"            }            [12]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-    //(world.getBlockName(x-1,y,z) == WATER)
-        //(world.getBlockName(x+1,y,z) == WATER)
-            //(world.getBlockName(x,y,z-1) == WATER)
-                            //(world.getBlockName(x,y,z+1) == WATER)
-
-////////////////////////////////////////////////////
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-//////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-
-if (
-    (world.getBlockName(x+1,y,z) == dryE)
-){
-    world.setBlock(x,y,z,wetC)
-}
-//W
-if (
-    (world.getBlockName(x-1,y,z) == "minecraft:air")
-){
-    world.setBlock(x,y,z,wetN)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryC)
-){
-    world.setBlock(x-1,y,z,wetC)
-}
-
-if (
-    (world.getBlockName(x-1,y,z) == dryE)
-){ 
-    world.setBlock(x-1,y,z,wetE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryNE)
-){ 
-    world.setBlock(x-1,y,z,wetNE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryES)
-){ 
-    world.setBlock(x-1,y,z,wetES)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryEN)
-){ 
-    world.setBlock(x-1,y,z,wetEN)
-}
-
-//E
-//if (
-//    (world.getBlockName(x+1,y,z) == dryC)
-//){ 
-//    world.setBlock(x+1,y,z,wetC)
-//}
-//if (
-//    (world.getBlockName(x+1,y,z) == dryE)
-//){ 
-//    world.setBlock(x+1,y,z,wetE)
-//}
-//if (
-//    (world.getBlockName(x+1,y,z) == dryNW)
-//){ 
-//    world.setBlock(x+1,y,z,wetNW)
-//}
-//if (
-//    (world.getBlockName(x+1,y,z) == dryES)
-//){ 
-//    world.setBlock(x+1,y,z,wetES)
-//}
-//if (
-//    (world.getBlockName(x+1,y,z) == dryEN)
-//){ 
-//    world.setBlock(x+1,y,z,wetEN)
-//}
-
-//N
-if (
-    (world.getBlockName(x,y,z-1) == dryC)
-){ 
-    world.setBlock(x,y,z-1,wetC)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryN)
-){ 
-    world.setBlock(x,y,z-1,wetN)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryNE)
-){ 
-    world.setBlock(x,y,z-1,wetNE)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryNW)
-){ 
-    world.setBlock(x,y,z-1,wetNW)
-}
-if (
-    (world.getBlockName(x,y,z-1) == dryES)
-){ 
-    world.setBlock(x,y,z-1,wetES)
-}
-
-//S
-if (
-    (world.getBlockName(x,y,z+1) == dryC)
-){ 
-    world.setBlock(x,y,z+1,wetC)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryN)
-){ 
-    world.setBlock(x,y,z+1,wetN)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryNE)
-){ 
-    world.setBlock(x,y,z+1,wetNE)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryNW)
-){ 
-    world.setBlock(x,y,z+1,wetNW)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryEN)
-){ 
-    world.setBlock(x,y,z+1,wetEN)
-}
-/////////////////////////////////////////////////
-if(
-world.getBlockName(x,y,z-1) == "minecraft:air"
-){
-world.setBlockAndMetadata(x,y,z-1,"minecraft:water",1)
-}
-
-if(
-world.getBlockName(x,y,z+1) == "minecraft:air"
-){
-world.setBlockAndMetadata(x,y,z+1,"minecraft:water",1)
-}"                  }                  onBreak: {                     Value: "
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-
-//W
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetE)
-){ 
-    world.setBlock(x-1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetNE)
-){ 
-    world.setBlock(x-1,y,z,dryNE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetES)
-){ 
-    world.setBlock(x-1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetEN)
-){ 
-    world.setBlock(x-1,y,z,dryEN)
-}
-
-//E
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){
-    world.setBlock(x+1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){ 
-    world.setBlock(x+1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetE)
-){ 
-    world.setBlock(x+1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetNW)
-){ 
-    world.setBlock(x+1,y,z,dryNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetES)
-){ 
-    world.setBlock(x+1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetEN)
-){ 
-    world.setBlock(x+1,y,z,dryEN)
-}
-
-//N
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetN)
-){ 
-    world.setBlock(x,y,z-1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNE)
-){ 
-    world.setBlock(x,y,z-1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNW)
-){ 
-    world.setBlock(x,y,z-1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetES)
-){ 
-    world.setBlock(x,y,z-1,dryES)
-}
-
-//S
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetN)
-){ 
-    world.setBlock(x,y,z+1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNE)
-){ 
-    world.setBlock(x,y,z+1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNW)
-){ 
-    world.setBlock(x,y,z+1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetEN)
-){ 
-    world.setBlock(x,y,z+1,dryEN)
-}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopWetC2"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canalwetN-W"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: "var inv = player.getInventory()
-var i = player.getCurrentSlot()
-var n = inv.getStackSize(i)
-var name = inv.getItemName(i)
-///////////////////////////////////////////////
-if (
-name == "minecraft:glass_bottle"
-){
-player.swingItem()
-//world.setBlock(x,y,z,"Canal:canaldryfake")
-inv.remove("minecraft:glass_bottle", 0, 1)
-//player.dropItem("minecraft:potion",0,1)
-inv.add("minecraft:potion",0,1)
-//world.setBlock(x,y,z,"Canal:canaldry")
-//world.spawnItem(position,"minecraft:potion",0,1)
-}"                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-////////////////////////////////////////////////////
-var water    = "minecraft:water"
-var air      = "minecraft:air" 
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-////////////////////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////////////////
-if(
-    (world.getBlockName(x,y,z-1) != air)&&
-    (world.getBlockName(x,y,z-1) != water)&&
-    (world.getBlockName(x,y,z-1) != wetN)&&
-    (world.getBlockName(x,y,z-1) != wetNE)&&
-    (world.getBlockName(x,y,z-1) != wetNW)&&
-    (world.getBlockName(x,y,z-1) != wetES)&&
-    (world.getBlockName(x,y,z-1) != dryES)&&
-    (world.getBlockName(x,y,z-1) != wetEN)&&
-    (world.getBlockName(x,y,z-1) != dryEN)&&
-    (world.getBlockName(x,y,z-1) != wetC)&&
-    (world.getBlockName(x,y,z-1) != dryC)&&
-    (world.getBlockName(x,y,z-1) != dryN)&&
-    (world.getBlockName(x,y,z-1) != dryE)&&
-    (world.getBlockName(x,y,z-1) != wetE)&&
-    (world.getBlockName(x,y,z-1) != dryNE)&&
-    (world.getBlockName(x,y,z-1) != dryNW)&&
-        (world.getBlockName(x,y,z-1) != "Canal:canalclose")&&
-        (world.getBlockName(x,y,z-1) != "Canal:canalcloseE")
-){
-    world.setBlock(x,y,z,"Canal:canalclose")
-}
-if(
-    (world.getBlockName(x,y,z+1) != air)&&
-    (world.getBlockName(x,y,z+1) != water)&&
-    (world.getBlockName(x,y,z+1) != wetN)&&
-    (world.getBlockName(x,y,z+1) != wetNE)&&
-    (world.getBlockName(x,y,z+1) != wetNW)&&
-    (world.getBlockName(x,y,z+1) != wetES)&&
-    (world.getBlockName(x,y,z+1) != dryES)&&
-    (world.getBlockName(x,y,z+1) != wetEN)&&
-    (world.getBlockName(x,y,z+1) != dryEN)&&
-    (world.getBlockName(x,y,z+1) != wetC)&&
-    (world.getBlockName(x,y,z+1) != dryC)&&
-    (world.getBlockName(x,y,z+1) != dryN)&&
-    (world.getBlockName(x,y,z+1) != dryNE)&&
-    (world.getBlockName(x,y,z+1) != dryE)&&
-    (world.getBlockName(x,y,z+1) != wetE)&&
-    (world.getBlockName(x,y,z+1) != dryNW)&&
-        (world.getBlockName(x,y,z+1) != "Canal:canalclose")&&
-        (world.getBlockName(x,y,z+1) != "Canal:canalcloseE")
-){
-    world.setBlock(x,y,z,"Canal:canalclose")
-}"                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canalwetN-W"            }            [13]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-    //(world.getBlockName(x-1,y,z) == WATER)
-        //(world.getBlockName(x+1,y,z) == WATER)
-            //(world.getBlockName(x,y,z-1) == WATER)
-                            //(world.getBlockName(x,y,z+1) == WATER)
-
-////////////////////////////////////////////////////
-//var WATER = "minecraft:water"
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-//////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-if (
-    (world.getBlockName(x,y,z-1) == dryN)
-){
-    world.setBlock(x,y,z,wetC)
-}
-//W
-if (
-    (world.getBlockName(x-1,y,z) == dryN)
-){
-    world.setBlock(x-1,y,z,wetNW)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryNE)
-){
-    world.setBlock(x-1,y,z,wetC)
-}
-
-if (
-    (world.getBlockName(x-1,y,z) == dryC)
-){
-    world.setBlock(x-1,y,z,wetC)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryE)
-){ 
-    world.setBlock(x-1,y,z,wetE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryNE)
-){ 
-    world.setBlock(x-1,y,z,wetNE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryES)
-){ 
-    world.setBlock(x-1,y,z,wetES)
-}
-if (
-    (world.getBlockName(x-1,y,z) == dryEN)
-){ 
-    world.setBlock(x-1,y,z,wetEN)
-}
-
-//E
-if (
-    (world.getBlockName(x+1,y,z) == dryN)
-){
-    world.setBlock(x+1,y,z,wetNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryNE)
-){
-    world.setBlock(x+1,y,z,wetC)
-}
-
-if (
-    (world.getBlockName(x+1,y,z) == dryC)
-){ 
-    world.setBlock(x+1,y,z,wetC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryE)
-){ 
-    world.setBlock(x+1,y,z,wetE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryNW)
-){ 
-    world.setBlock(x+1,y,z,wetNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryES)
-){ 
-    world.setBlock(x+1,y,z,wetES)
-}
-if (
-    (world.getBlockName(x+1,y,z) == dryEN)
-){ 
-    world.setBlock(x+1,y,z,wetEN)
-}
-
-//N
-//if (
-//    (world.getBlockName(x,y,z-1) == dryC)
-//){ 
-//    world.setBlock(x,y,z-1,wetC)
-//}
-//if (
-//    (world.getBlockName(x,y,z-1) == dryN)
-//){ 
-//    world.setBlock(x,y,z-1,wetN)
-//}
-//if (
-//    (world.getBlockName(x,y,z-1) == dryNE)
-//){ 
-//    world.setBlock(x,y,z-1,wetNE)
-//}
-//if (
-//    (world.getBlockName(x,y,z-1) == dryNW)
-//){ 
-//    world.setBlock(x,y,z-1,wetNW)
-//}
-//if (
-//    (world.getBlockName(x,y,z-1) == dryES)
-//){ 
-//    world.setBlock(x,y,z-1,wetES)
-//}
-
-//S
-if (
-    (world.getBlockName(x,y,z+1) == "minecraft:air")
-){ 
-    world.setBlock(x,y,z,wetE)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryES)
-){ 
-    world.setBlock(x,y,z+1,wetC)
-}
-
-if (
-    (world.getBlockName(x,y,z+1) == dryC)
-){ 
-    world.setBlock(x,y,z+1,wetC)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryN)
-){ 
-    world.setBlock(x,y,z+1,wetN)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryNE)
-){ 
-    world.setBlock(x,y,z+1,wetNE)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryNW)
-){ 
-    world.setBlock(x,y,z+1,wetNW)
-}
-if (
-    (world.getBlockName(x,y,z+1) == dryEN)
-){ 
-    world.setBlock(x,y,z+1,wetEN)
-}
-/////////////////////////////////////////////////
-if(
-world.getBlockName(x-1,y,z) == "minecraft:air"
-){
-world.setBlockAndMetadata(x-1,y,z,"minecraft:water",1)
-}
-
-if(
-world.getBlockName(x+1,y,z) == "minecraft:air"
-){
-world.setBlockAndMetadata(x+1,y,z,"minecraft:water",1)
-}"                  }                  onBreak: {                     Value: "
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-var x = position.x
-var y = position.y
-var z = position.z
-//(world.getBlockName(x-1,y,z) == WATER)
-//(world.getBlockName(x+1,y,z) == WATER)
-//(world.getBlockName(x,y,z-1) == WATER)
-//(world.getBlockName(x,y,z+1) == WATER)
-
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-
-//W
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x-1,y,z) == wetC)
-){
-    world.setBlock(x-1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetE)
-){ 
-    world.setBlock(x-1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetNE)
-){ 
-    world.setBlock(x-1,y,z,dryNE)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetES)
-){ 
-    world.setBlock(x-1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x-1,y,z) == wetEN)
-){ 
-    world.setBlock(x-1,y,z,dryEN)
-}
-
-//E
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){
-    world.setBlock(x+1,y,z,dryC)
-}
-
-if (
-    (world.getBlockName(x+1,y,z) == wetC)
-){ 
-    world.setBlock(x+1,y,z,dryC)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetE)
-){ 
-    world.setBlock(x+1,y,z,dryE)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetNW)
-){ 
-    world.setBlock(x+1,y,z,dryNW)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetES)
-){ 
-    world.setBlock(x+1,y,z,dryES)
-}
-if (
-    (world.getBlockName(x+1,y,z) == wetEN)
-){ 
-    world.setBlock(x+1,y,z,dryEN)
-}
-
-//N
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z-1) == wetC)
-){ 
-    world.setBlock(x,y,z-1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetN)
-){ 
-    world.setBlock(x,y,z-1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNE)
-){ 
-    world.setBlock(x,y,z-1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetNW)
-){ 
-    world.setBlock(x,y,z-1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z-1) == wetES)
-){ 
-    world.setBlock(x,y,z-1,dryES)
-}
-
-//S
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-
-if (
-    (world.getBlockName(x,y,z+1) == wetC)
-){ 
-    world.setBlock(x,y,z+1,dryC)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetN)
-){ 
-    world.setBlock(x,y,z+1,dryN)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNE)
-){ 
-    world.setBlock(x,y,z+1,dryNE)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetNW)
-){ 
-    world.setBlock(x,y,z+1,dryNW)
-}
-if (
-    (world.getBlockName(x,y,z+1) == wetEN)
-){ 
-    world.setBlock(x,y,z+1,dryEN)
-}"                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopWetC4"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canalwetE-S"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                     Value: ""                  }                  displayName: {                     Value: "水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: "var inv = player.getInventory()
-var i = player.getCurrentSlot()
-var n = inv.getStackSize(i)
-var name = inv.getItemName(i)
-///////////////////////////////////////////////
-if (
-name == "minecraft:glass_bottle"
-){
-player.swingItem()
-//world.setBlock(x,y,z,"Canal:canaldryfake")
-inv.remove("minecraft:glass_bottle", 0, 1)
-//player.dropItem("minecraft:potion",0,1)
-inv.add("minecraft:potion",0,1)
-//world.setBlock(x,y,z,"Canal:canaldry")
-//world.spawnItem(position,"minecraft:potion",0,1)
-}"                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-////////////////////////////////////////////////////
-var water    = "minecraft:water"
-var air      = "minecraft:air" 
-var wetN     = "Canal:canalwet"
-var wetE     = "Canal:canalwetE"
-var wetC     = "Canal:canalwetC"
-var wetEN    = "Canal:canalwetE-N"
-var wetES    = "Canal:canalwetE-S"
-var wetNE    = "Canal:canalwetN-E"
-var wetNW    = "Canal:canalwetN-W"
-////////////////////////////////////////////////////
-var dryN     = "Canal:canaldry"
-var dryE     = "Canal:canaldryE"
-var dryC     = "Canal:canaldryC"
-var dryEN    = "Canal:canaldryE-N"
-var dryES    = "Canal:canaldryE-S"
-var dryNE    = "Canal:canaldryN-E"
-var dryNW    = "Canal:canaldryN-W"
-////////////////////////////////////////////////////
-if(
-    (world.getBlockName(x-1,y,z) != air)&&
-    (world.getBlockName(x-1,y,z) != water)&&
-    (world.getBlockName(x-1,y,z) != wetE)&&
-    (world.getBlockName(x-1,y,z) != wetNE)&&
-    (world.getBlockName(x-1,y,z) != wetNW)&&
-    (world.getBlockName(x-1,y,z) != wetES)&&
-    (world.getBlockName(x-1,y,z) != dryES)&&
-    (world.getBlockName(x-1,y,z) != wetEN)&&
-    (world.getBlockName(x-1,y,z) != dryEN)&&
-    (world.getBlockName(x-1,y,z) != wetC)&&
-    (world.getBlockName(x-1,y,z) != dryC)&&
-    (world.getBlockName(x-1,y,z) != dryE)&&
-    (world.getBlockName(x-1,y,z) != dryNE)&&
-    (world.getBlockName(x-1,y,z) != dryNW)&&
-    (world.getBlockName(x-1,y,z) != dryN)&&
-    (world.getBlockName(x-1,y,z) != wetN)&&
-        (world.getBlockName(x-1,y,z) != "Canal:canalclose")&&
-        (world.getBlockName(x-1,y,z) != "Canal:canalcloseE")
-){
-    world.setBlock(x,y,z,"Canal:canalcloseE")
-}
-if(
-    (world.getBlockName(x+1,y,z) != air)&&
-    (world.getBlockName(x+1,y,z) != water)&&
-    (world.getBlockName(x+1,y,z) != wetE)&&
-    (world.getBlockName(x+1,y,z) != wetNE)&&
-    (world.getBlockName(x+1,y,z) != wetNW)&&
-    (world.getBlockName(x+1,y,z) != wetES)&&
-    (world.getBlockName(x+1,y,z) != dryES)&&
-    (world.getBlockName(x+1,y,z) != wetEN)&&
-    (world.getBlockName(x+1,y,z) != dryEN)&&
-    (world.getBlockName(x+1,y,z) != wetC)&&
-    (world.getBlockName(x+1,y,z) != dryC)&&
-    (world.getBlockName(x+1,y,z) != dryE)&&
-    (world.getBlockName(x+1,y,z) != dryNE)&&
-    (world.getBlockName(x+1,y,z) != dryNW)&&
-    (world.getBlockName(x+1,y,z) != dryN)&&
-    (world.getBlockName(x+1,y,z) != wetN)&&
-        (world.getBlockName(x+1,y,z) != "Canal:canalclose")&&
-        (world.getBlockName(x+1,y,z) != "Canal:canalcloseE")
-){
-    world.setBlock(x,y,z,"Canal:canalcloseE")
-}"                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canalwetE-S"            }            [14]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-var water    = "minecraft:water"
-var air      = "minecraft:air"
-var dryN     = "Canal:canaldry" 
-////////////////////////////////////////////////////
-if(
-world.getBlockName(x,y,z-1) == water
-){
-world.setBlock(x,y,z,dryN)
-}
-if(
-world.getBlockName(x,y,z+1) == water
-){
-world.setBlock(x,y,z,dryN)
-}"                  }                  onBreak: {                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopClose"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canalclose"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                  }                  displayName: {                     Value: "封闭水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-if(player.isSneaking()){
-player.swingItem()
-world.setBlock(x,y,z,"Canal:canaldry")}"                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canalclose"            }            [15]: {               Type: "normal"               Attributes: {                  onBonemeal: {                  }                  onCollided: {                  }                  flammability: {                     Value: 10                  }                  transparent: {                     Value: 0b                  }                  expDropMin: {                     Value: 0                  }                  textureBottom: {                     Value: "canal:canalSide"                  }                  onPlacedByPlayer: {                  }                  onClicked: {                  }                  canPlaceOnFloor: {                     Value: 1b                  }                  canPlaceOnWall: {                     Value: 1b                  }                  onUpdate: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-var water    = "minecraft:water"
-var air      = "minecraft:air"
-var dryE     = "Canal:canaldryE" 
-////////////////////////////////////////////////////
-if(
-world.getBlockName(x+1,y,z) == water
-){
-world.setBlock(x,y,z,dryE)
-}
-if(
-world.getBlockName(x-1,y,z) == water
-){
-world.setBlock(x,y,z,dryE)
-}"                  }                  onBreak: {                  }                  canRotatable: {                     Value: 0b                  }                  useFortune: {                     Value: 0b                  }                  fortuneModifier: {                     Value: 0                  }                  resistance: {                     Value: 0.0f                  }                  textureTop: {                     Value: "canal:canalTopCloseE"                  }                  hasCollision: {                     Value: 1b                  }                  textureSouth: {                     Value: "canal:canalSide"                  }                  material: {                     Value: "rock"                  }                  onAdded: {                  }                  textureEast: {                     Value: "canal:canalSide"                  }                  stepSound: {                     Value: "stone"                  }                  toolClass: {                  }                  containerItem: {                  }                  harvestLevel: {                     Value: 0                  }                  pick: {                     Damage: 0s                     ItemName: "Canal:canalcloseE"                     Count: 1b                  }                  addToCreative: {                     Value: 1b                  }                  leaveContainerItem: {                     Value: 0b                  }                  blocksPiston: {                     Value: 0b                  }                  expDropMax: {                     Value: 0                  }                  onFallenUpon: {                  }                  opacity: {                     Value: 255                  }                  isFireSource: {                     Value: 0b                  }                  onWalking: {                  }                  displayName: {                     Value: "封闭水渠"                  }                  semiTransparent: {                     Value: 0b                  }                  textureNorth: {                     Value: "canal:canalSide"                  }                  canSilkHarvest: {                     Value: 0b                  }                  onRedstoneSignal: {                  }                  onPlacedBy: {                  }                  onPlaced: {                  }                  light: {                     Value: 0                  }                  isBurning: {                     Value: 0b                  }                  onActivated: {                     Value: "var x = position.x
-var y = position.y
-var z = position.z
-if(player.isSneaking()){
-player.swingItem()
-world.setBlock(x,y,z,"Canal:canaldryE")}"                  }                  tickrate: {                     Value: 10                  }                  maxStack: {                     Value: 64                  }                  canPlaceOnCeiling: {                     Value: 1b                  }                  information: {                  }                  tileTransparent: {                     Value: 0b                  }                  isWood: {                     Value: 0b                  }                  drop: {                     Drops: {                        [0]: {                           Max: 1                           Item: "Canal:canaldry"                           DV: 0                           Min: 1                        }                     }                  }                  onNeighborChange: {                     Value: ""                  }                  slipperiness: {                     Value: 0.6f                  }                  textureWest: {                     Value: "canal:canalSide"                  }                  tileEntity: {                  }                  creativeTab: {                     Value: "search"                  }                  onDestroyedByPlayer: {                  }                  hardness: {                     Value: 1.5f                  }                  isBeaconBase: {                     Value: 0b                  }                  onRandomDisplayTick: {                  }                  fireSpreadSpeed: {                     Value: 10                  }               }               Name: "canalcloseE"            }         }      }      [11]: {         Name: "WorldGenRegistry"         ContentList: {         }      }      [12]: {         Name: "TradeRecipeRegistry"         ContentList: {         }      }      [13]: {         Name: "GrassPlantRegistry"         ContentList: {         }      }      [14]: {         Name: "GrassSeedRegistry"         ContentList: {         }      }      [15]: {         Name: "ChestItemRegistry"         ContentList: {         }      }      [16]: {         Name: "MobSpawnRegistry"         ContentList: {         }      }      [17]: {         Name: "DungeonMobRegistry"         ContentList: {         }      }      [18]: {         Name: "MobDropRegistry"         ContentList: {         }      }      [19]: {         Name: "EventRegistry"         ContentList: {         }      }      [20]: {         Name: "饰品注册表"         ContentList: {         }      }   }}
